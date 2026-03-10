@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import heroVideo from "@/assets/hero-video.mp4";
 import heroImage from "@/assets/hero-pilates-new.jpg";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
@@ -9,16 +8,11 @@ const HeroSection = () => {
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={heroImage}
+        <img
+          src={heroImage}
+          alt="LŪNA Pilates grip socks"
           className="w-full h-full object-cover"
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background/70" />
       </div>
 

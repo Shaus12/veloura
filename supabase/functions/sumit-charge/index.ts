@@ -50,34 +50,16 @@ Deno.serve(async (req) => {
 
     // Call Sumit Transaction API to charge
     const chargeResponse = await fetch(
-      "https://api.sumit.co.il/billing/payments/charge",
+      "https://api.sumit.co.il/billing/payments/charge/",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          Customer: {
-            ExternalIdentifier: customerEmail,
-            Name: customerName,
-            EmailAddress: customerEmail,
-            Phone: customerPhone || "",
-          },
-          ChargeAmount: amount,
-          Description: `הזמנה מ-VELŌURA - ${items.length} פריטים`,
-          VATIncluded: true,
-          VATRate: 0,
-          SingleUseToken: token,
-          Items: items.map((item: { name: string; price: number; quantity: number }) => ({
-            Description: item.name,
-            UnitCost: item.price,
-            Quantity: item.quantity,
-          })),
-          CompanyID: 767581436,
-          APIKey: SUMIT_SECRET,
-        }),
+        body: JSON.stringify(chargeBody),
       }
     );
 
     const chargeData = await chargeResponse.json();
+    console.log("Sumit response:", JSON.stringify(chargeData));
 
     // Save order to database
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;

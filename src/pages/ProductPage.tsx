@@ -107,6 +107,18 @@ const allProducts = [
     details: ["לטקס טבעי", "התנגדות בינונית", "אורך 200 ס\"מ", "כולל שקית נשיאה"],
     category: "אביזרים",
   },
+  {
+    id: "test-product",
+    name: "🧪 מוצר בדיקה - ₪1",
+    price: 1,
+    priceDollar: 0.3,
+    images: [sockPinkStripe],
+    color: "בדיקה",
+    description: "מוצר בדיקה לווידוא תהליך התשלום. מחיר: ₪1 בלבד.",
+    details: ["מוצר בדיקה בלבד", "לא למכירה"],
+    sizes: ["M (38-40)"],
+    category: "בדיקה",
+  },
 ];
 
 const reviews = [

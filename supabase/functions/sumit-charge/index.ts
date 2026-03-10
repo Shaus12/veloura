@@ -37,9 +37,11 @@ Deno.serve(async (req) => {
       VATRate: 0,
       SingleUseToken: token,
       Items: items.map((item: { name: string; price: number; quantity: number }) => ({
-        Description: item.name,
-        UnitCost: item.price,
+        Item: {
+          Name: item.name,
+        },
         Quantity: item.quantity,
+        UnitPrice: item.price,
       })),
       Credentials: {
         CompanyID: 767581436,

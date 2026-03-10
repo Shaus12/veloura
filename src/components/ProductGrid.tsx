@@ -37,6 +37,7 @@ const products = [
 const ProductCard = ({ product, index, isVisible }: { product: typeof products[0]; index: number; isVisible: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
   const { addItem } = useCart();
+  const navigate = useNavigate();
 
   return (
     <div
@@ -45,7 +46,10 @@ const ProductCard = ({ product, index, isVisible }: { product: typeof products[0
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative overflow-hidden rounded-3xl bg-card shadow-card mb-5 aspect-square">
+      <div
+        className="relative overflow-hidden rounded-3xl bg-card shadow-card mb-5 aspect-square cursor-pointer"
+        onClick={() => navigate(`/product/${product.id}`)}
+      >
         <img
           src={product.image}
           alt={product.name}

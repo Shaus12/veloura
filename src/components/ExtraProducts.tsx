@@ -1,26 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
 import modelReformer from "@/assets/model-reformer-1.jpg";
 import modelStretch from "@/assets/model-stretch-1.jpg";
 import modelLifestyle2 from "@/assets/model-lifestyle-2.jpg";
 
 const extras = [
   {
+    id: "rec-1",
     name: "טבעת פילאטיס פרימיום",
-    price: "₪89",
+    price: 89,
     description: "טבעת התנגדות מקצועית לחיטוב וחיזוק",
     image: modelReformer,
   },
   {
+    id: "rec-2",
     name: "מגבת סטודיו מיקרופייבר",
-    price: "₪49",
+    price: 49,
     description: "מגבת רכה וסופגת במיוחד לאימון",
     image: modelStretch,
   },
   {
+    id: "rec-3",
     name: "גומיית התנגדות LŪNA",
-    price: "₪39",
+    price: 39,
     description: "גומיית לטקס איכותית לאימון בבית ובסטודיו",
     image: modelLifestyle2,
   },
@@ -28,6 +32,7 @@ const extras = [
 
 const ExtraProducts = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
+  const { addItem } = useCart();
 
   return (
     <section id="extras" ref={ref} className="py-28 md:py-36 px-6 bg-secondary/30">
@@ -55,7 +60,7 @@ const ExtraProducts = () => {
             const [isHovered, setIsHovered] = useState(false);
             return (
               <div
-                key={product.name}
+                key={product.id}
                 className={`group ${isVisible ? "animate-fade-up" : "opacity-0"}`}
                 style={{ animationDelay: `${0.2 + i * 0.15}s` }}
                 onMouseEnter={() => setIsHovered(true)}
@@ -79,9 +84,14 @@ const ExtraProducts = () => {
                     {product.description}
                   </p>
                   <p className="text-sm font-sans font-semibold text-foreground mb-4">
-                    {product.price}
+                    ₪{product.price}
                   </p>
-                  <Button variant="subtle" size="sm" className="px-6">
+                  <Button
+                    variant="subtle"
+                    size="sm"
+                    className="px-6"
+                    onClick={() => addItem({ id: product.id, name: product.name, price: product.price, image: product.image })}
+                  >
                     הוסיפי לסל
                   </Button>
                 </div>

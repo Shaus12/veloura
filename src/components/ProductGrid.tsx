@@ -4,26 +4,38 @@ import sockPinkStripe from "@/assets/sock-pink-stripe.png";
 import sockPinkDots from "@/assets/sock-pink-dots.png";
 import heroPilatesNew from "@/assets/hero-pilates-new.jpg";
 import { useState } from "react";
+import { useCart } from "@/contexts/CartContext";
 
 const products = [
   {
+    id: "sock-rose-quartz",
     name: "גרב אחיזה Rose Quartz",
-    price: "₪60",
-    oldPrice: "₪90",
+    price: 60,
+    oldPrice: 90,
     image: sockPinkStripe,
     color: "ורוד פסים",
   },
   {
+    id: "sock-champagne",
     name: "גרב אחיזה Champagne",
-    price: "₪60",
-    oldPrice: "₪90",
+    price: 60,
+    oldPrice: 90,
     image: sockPinkDots,
     color: "ורוד נקודות",
+  },
+  {
+    id: "sock-lifestyle",
+    name: "גרב אחיזה LŪNA Classic",
+    price: 60,
+    oldPrice: 90,
+    image: heroPilatesNew,
+    color: "ורוד קלאסי",
   },
 ];
 
 const ProductCard = ({ product, index, isVisible }: { product: typeof products[0]; index: number; isVisible: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { addItem } = useCart();
 
   return (
     <div
@@ -60,13 +72,18 @@ const ProductCard = ({ product, index, isVisible }: { product: typeof products[0
         </h3>
         <div className="flex items-center gap-2 mb-4">
           <p className="text-sm font-sans font-semibold text-foreground">
-            {product.price}
+            ₪{product.price}
           </p>
           <p className="text-sm font-sans font-light text-muted-foreground line-through">
-            {product.oldPrice}
+            ₪{product.oldPrice}
           </p>
         </div>
-        <Button variant="subtle" size="sm" className="px-6">
+        <Button
+          variant="subtle"
+          size="sm"
+          className="px-6"
+          onClick={() => addItem({ id: product.id, name: product.name, price: product.price, image: product.image })}
+        >
           הוסיפי לסל
         </Button>
       </div>
@@ -98,9 +115,9 @@ const ProductGrid = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
           {products.map((product, i) => (
-            <ProductCard key={product.name} product={product} index={i} isVisible={isVisible} />
+            <ProductCard key={product.id} product={product} index={i} isVisible={isVisible} />
           ))}
         </div>
       </div>

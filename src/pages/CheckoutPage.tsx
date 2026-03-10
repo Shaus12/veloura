@@ -87,6 +87,12 @@ const CheckoutPage = () => {
   const shippingCost = afterDiscount >= 250 ? 0 : 30;
   const total = afterDiscount + shippingCost;
 
+  // Sync refs for values used in processPayment
+  useEffect(() => { appliedCouponRef.current = appliedCoupon; }, [appliedCoupon]);
+  useEffect(() => { discountRef.current = discount; }, [discount]);
+  useEffect(() => { totalRef.current = total; }, [total]);
+  useEffect(() => { itemsRef.current = items; }, [items]);
+
   const applyCoupon = () => {
     const code = couponCode.trim().toUpperCase();
     if (COUPONS[code]) {

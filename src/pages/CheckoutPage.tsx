@@ -82,9 +82,9 @@ const CheckoutPage = () => {
 
   const processPayment = async (token: string) => {
     try {
-      // Call our edge function to process the charge
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
       const response = await fetch(
-        `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/sumit-charge`,
+        `${supabaseUrl}/functions/v1/sumit-charge`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

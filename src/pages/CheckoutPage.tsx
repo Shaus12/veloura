@@ -6,7 +6,7 @@ import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ChevronRight, CreditCard, Lock, ShoppingBag } from "lucide-react";
+import { ChevronRight, CreditCard, Lock, ShoppingBag, MapPin, Tag } from "lucide-react";
 import { toast } from "sonner";
 
 declare global {
@@ -16,6 +16,7 @@ declare global {
         BindFormSubmit: (config: {
           CompanyID: number;
           APIPublicKey: string;
+          ResponseCallback?: (response: any) => void;
         }) => void;
       };
     };
@@ -26,23 +27,78 @@ declare global {
 const COMPANY_ID = 767581436;
 const API_PUBLIC_KEY = "4B46Y4gkPjWj23sofFZWCAdeGC1gMH9HDtnQ9n0N652huKlm3B";
 
+// Coupon codes
+const COUPONS: Record<string, { type: "percent" | "fixed"; value: number; label: string }> = {
+  WELCOME10: { type: "percent", value: 10, label: "10% הנחה" },
+  VELOURA20: { type: "percent", value: 20, label: "20% הנחה" },
+  FREE30: { type: "fixed", value: 30, label: "₪30 הנחה" },
+};
+
 const CheckoutPage = () => {
   const navigate = useNavigate();
   const { items, itemCount } = useCart();
-  const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+  const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
   const formRef = useRef<HTMLFormElement>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+
+  // Customer details
   const [customerName, setCustomerName] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
 
+  // Shipping address
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [apartment, setApartment] = useState("");
+  const [zipCode, setZipCode] = useState("");
+
+  // Coupon
+  const [couponCode, setCouponCode] = useState("");
+  const [appliedCoupon, setAppliedCoupon] = useState<string | null>(null);
+
+  const discount = appliedCoupon
+    ? COUPONS[appliedCoupon].type === "percent"
+      ? Math.round(subtotal * COUPONS[appliedCoupon].value / 100)
+      : COUPONS[appliedCoupon].value
+    : 0;
+
+  const afterDiscount = subtotal - discount;
+  const shippingCost = afterDiscount >= 250 ? 0 : 30;
+  const total = afterDiscount + shippingCost;
+
+  const applyCoupon = () => {
+    const code = couponCode.trim().toUpperCase();
+    if (COUPONS[code]) {
+      setAppliedCoupon(code);
+      toast.success(`קופון "${code}" הופעל — ${COUPONS[code].label}`);
+    } else {
+      toast.error("קוד קופון לא תקין");
+    }
+  };
+
+  const removeCoupon = () => {
+    setAppliedCoupon(null);
+    setCouponCode("");
+    toast("הקופון הוסר");
+  };
+
   useEffect(() => {
-    // Initialize Sumit payments when script is loaded
     const initSumit = () => {
       if (window.OfficeGuy?.Payments && window.jQuery) {
         window.OfficeGuy.Payments.BindFormSubmit({
           CompanyID: COMPANY_ID,
           APIPublicKey: API_PUBLIC_KEY,
+          ResponseCallback: (response: any) => {
+            if (response.Status !== 0) {
+              setIsProcessing(false);
+              toast.error(response.UserErrorMessage || "שגיאה בפרטי הכרטיס");
+            } else {
+              const token = response.Data?.SingleUseToken;
+              if (token) {
+                processPayment(token);
+              }
+            }
+          },
         });
       } else {
         setTimeout(initSumit, 200);
@@ -51,33 +107,18 @@ const CheckoutPage = () => {
     initSumit();
   }, []);
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!customerName || !customerEmail) {
       toast.error("נא למלא שם ואימייל");
       return;
     }
-
+    if (!street || !city) {
+      toast.error("נא למלא כתובת למשלוח");
+      return;
+    }
     setIsProcessing(true);
-
-    // The Sumit JS library adds og-token to the form after tokenization
-    // We need to wait for it and then send to our server
-    const checkToken = () => {
-      const form = formRef.current;
-      if (!form) return;
-
-      const tokenInput = form.querySelector<HTMLInputElement>('[name="og-token"]');
-      if (tokenInput?.value) {
-        processPayment(tokenInput.value);
-      } else {
-        // Sumit is still processing, wait a bit
-        setTimeout(checkToken, 500);
-      }
-    };
-
-    // Submit the form through Sumit's handler first
-    // Sumit's BindFormSubmit intercepts submit and tokenizes
-    setTimeout(checkToken, 1000);
+    // Sumit's BindFormSubmit intercepts the submit and tokenizes via ResponseCallback
   };
 
   const processPayment = async (token: string) => {
@@ -94,6 +135,14 @@ const CheckoutPage = () => {
             customerName,
             customerEmail,
             customerPhone,
+            shippingAddress: {
+              street,
+              city,
+              apartment,
+              zipCode,
+            },
+            couponCode: appliedCoupon,
+            discount,
             items: items.map((i) => ({
               name: i.name,
               price: i.price,
@@ -155,9 +204,9 @@ const CheckoutPage = () => {
 
         <div className="grid md:grid-cols-5 gap-12">
           {/* Payment Form */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-3 space-y-6">
             {/* Customer Details */}
-            <div className="bg-card rounded-3xl p-8 shadow-card mb-6">
+            <div className="bg-card rounded-3xl p-8 shadow-card">
               <h2 className="text-lg font-serif text-foreground mb-6">פרטי לקוח</h2>
               <div className="space-y-4">
                 <div>
@@ -194,7 +243,56 @@ const CheckoutPage = () => {
               </div>
             </div>
 
-            {/* Credit Card Form - Sumit Integration */}
+            {/* Shipping Address */}
+            <div className="bg-card rounded-3xl p-8 shadow-card">
+              <h2 className="text-lg font-serif text-foreground mb-6 flex items-center gap-2">
+                <MapPin className="w-5 h-5" />
+                כתובת למשלוח
+              </h2>
+              <div className="space-y-4">
+                <div>
+                  <label className="text-sm font-sans font-medium text-foreground mb-1.5 block">רחוב ומספר *</label>
+                  <Input
+                    value={street}
+                    onChange={(e) => setStreet(e.target.value)}
+                    placeholder="הרצל 1"
+                    className="rounded-xl"
+                  />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-sans font-medium text-foreground mb-1.5 block">עיר *</label>
+                    <Input
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      placeholder="תל אביב"
+                      className="rounded-xl"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-sans font-medium text-foreground mb-1.5 block">דירה / קומה</label>
+                    <Input
+                      value={apartment}
+                      onChange={(e) => setApartment(e.target.value)}
+                      placeholder="דירה 5"
+                      className="rounded-xl"
+                    />
+                  </div>
+                </div>
+                <div className="w-1/2">
+                  <label className="text-sm font-sans font-medium text-foreground mb-1.5 block">מיקוד</label>
+                  <Input
+                    value={zipCode}
+                    onChange={(e) => setZipCode(e.target.value)}
+                    placeholder="1234567"
+                    dir="ltr"
+                    className="rounded-xl text-left"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Credit Card Form */}
             <div className="bg-card rounded-3xl p-8 shadow-card">
               <h2 className="text-lg font-serif text-foreground mb-6 flex items-center gap-2">
                 <CreditCard className="w-5 h-5" />
@@ -289,9 +387,9 @@ const CheckoutPage = () => {
 
           {/* Order Summary */}
           <div className="md:col-span-2">
-            <div className="bg-card rounded-3xl p-8 shadow-card sticky top-28">
-              <h2 className="text-lg font-serif text-foreground mb-6">סיכום הזמנה</h2>
-              <div className="space-y-4 mb-6">
+            <div className="bg-card rounded-3xl p-8 shadow-card sticky top-28 space-y-6">
+              <h2 className="text-lg font-serif text-foreground">סיכום הזמנה</h2>
+              <div className="space-y-4">
                 {items.map((item) => (
                   <div key={item.id} className="flex gap-3 items-center">
                     <img
@@ -308,18 +406,64 @@ const CheckoutPage = () => {
                 ))}
               </div>
 
+              {/* Coupon Code */}
+              <div className="border-t border-border pt-4">
+                <label className="text-sm font-sans font-medium text-foreground mb-2 flex items-center gap-1.5">
+                  <Tag className="w-4 h-4" />
+                  קוד קופון
+                </label>
+                {appliedCoupon ? (
+                  <div className="flex items-center justify-between bg-accent/30 rounded-xl px-4 py-2.5">
+                    <span className="font-sans text-sm font-medium text-foreground">
+                      {appliedCoupon} — {COUPONS[appliedCoupon].label}
+                    </span>
+                    <button
+                      onClick={removeCoupon}
+                      className="text-xs text-destructive hover:underline font-sans"
+                    >
+                      הסר
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex gap-2">
+                    <Input
+                      value={couponCode}
+                      onChange={(e) => setCouponCode(e.target.value)}
+                      placeholder="הזיני קוד קופון"
+                      className="rounded-xl flex-1"
+                      dir="ltr"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={applyCoupon}
+                      className="rounded-xl"
+                    >
+                      הפעל
+                    </Button>
+                  </div>
+                )}
+              </div>
+
+              {/* Totals */}
               <div className="border-t border-border pt-4 space-y-2">
                 <div className="flex justify-between text-sm font-sans">
                   <span className="text-muted-foreground">סה״כ מוצרים</span>
-                  <span>₪{total}</span>
+                  <span>₪{subtotal}</span>
                 </div>
+                {discount > 0 && (
+                  <div className="flex justify-between text-sm font-sans text-green-600">
+                    <span>הנחת קופון</span>
+                    <span>-₪{discount}</span>
+                  </div>
+                )}
                 <div className="flex justify-between text-sm font-sans">
                   <span className="text-muted-foreground">משלוח</span>
-                  <span>{total >= 250 ? "חינם 🚚" : "₪30"}</span>
+                  <span>{shippingCost === 0 ? "חינם 🚚" : `₪${shippingCost}`}</span>
                 </div>
                 <div className="border-t border-border pt-3 flex justify-between">
                   <span className="font-serif text-lg">סה״כ לתשלום</span>
-                  <span className="font-sans font-bold text-lg">₪{total >= 250 ? total : total + 30}</span>
+                  <span className="font-sans font-bold text-lg">₪{total}</span>
                 </div>
               </div>
             </div>

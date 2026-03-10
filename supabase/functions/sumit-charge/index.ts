@@ -12,7 +12,7 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { token, amount, customerName, customerEmail, customerPhone, items } =
+    const { token, amount, customerName, customerEmail, customerPhone, shippingAddress, couponCode, discount, items } =
       await req.json();
 
     const SUMIT_SECRET = Deno.env.get("SUMIT_API_SECRET_KEY");
@@ -59,15 +59,16 @@ Deno.serve(async (req) => {
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    const shippingCost = amount >= 250 ? 0 : 30;
-
     await supabase.from("orders").insert({
       customer_name: customerName,
       customer_email: customerEmail,
       customer_phone: customerPhone || null,
       items: JSON.stringify(items),
-      total_amount: amount + shippingCost,
-      shipping_cost: shippingCost,
+      total_amount: amount,
+      shipping_cost: amount >= 250 ? 0 : 30,
+      shipping_address: shippingAddress ? JSON.stringify(shippingAddress) : null,
+      coupon_code: couponCode || null,
+      discount_amount: discount || 0,
       status: chargeData.Data?.ResponseCode === 0 ? "completed" : "failed",
       payment_token: token,
       sumit_response: chargeData,

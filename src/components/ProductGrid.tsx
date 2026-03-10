@@ -5,6 +5,7 @@ import sockPinkDots from "@/assets/sock-pink-dots.png";
 import productClassic from "@/assets/product-classic.jpg";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const products = [
   {

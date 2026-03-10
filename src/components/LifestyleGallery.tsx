@@ -23,7 +23,7 @@ const LifestyleGallery = () => {
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
-            #LūnaLifestyle
+            #VelouraLifestyle
           </p>
           <h2
             className={`text-4xl md:text-5xl font-serif font-normal text-foreground ${

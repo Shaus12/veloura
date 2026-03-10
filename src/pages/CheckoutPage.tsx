@@ -151,6 +151,7 @@ const CheckoutPage = () => {
   const processPayment = async (token: string) => {
     try {
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const currentItems = itemsRef.current;
       const response = await fetch(
         `${supabaseUrl}/functions/v1/sumit-charge`,
         {
@@ -158,19 +159,19 @@ const CheckoutPage = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             token,
-            amount: total,
-            customerName,
-            customerEmail,
-            customerPhone,
+            amount: totalRef.current,
+            customerName: customerNameRef.current,
+            customerEmail: customerEmailRef.current,
+            customerPhone: customerPhoneRef.current,
             shippingAddress: {
-              street,
-              city,
-              apartment,
-              zipCode,
+              street: streetRef.current,
+              city: cityRef.current,
+              apartment: apartmentRef.current,
+              zipCode: zipCodeRef.current,
             },
-            couponCode: appliedCoupon,
-            discount,
-            items: items.map((i) => ({
+            couponCode: appliedCouponRef.current,
+            discount: discountRef.current,
+            items: currentItems.map((i) => ({
               name: i.name,
               price: i.price,
               quantity: i.quantity,

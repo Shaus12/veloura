@@ -28,7 +28,7 @@ const products = [
     name: "גרב אחיזה LŪNA Classic",
     price: 60,
     oldPrice: 90,
-    image: heroPilatesNew,
+    image: productClassic,
     color: "ורוד קלאסי",
   },
 ];

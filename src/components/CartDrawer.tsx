@@ -14,6 +14,7 @@ const recommendations = [
 ];
 
 const CartDrawer = () => {
+  const navigate = useNavigate();
   const { items, removeItem, addItem, itemCount, isDrawerOpen, setDrawerOpen } = useCart();
   const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
 

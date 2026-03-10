@@ -5,9 +5,9 @@ import modelStretch from "@/assets/model-stretch-1.jpg";
 import modelLifestyle2 from "@/assets/model-lifestyle-2.jpg";
 
 const images = [
-  { src: modelReformer, alt: "דוגמנית על רפורמר עם גרבי LŪNA" },
+  { src: modelReformer, alt: "דוגמנית על רפורמר עם גרבי VELŌURA" },
   { src: modelLifestyle1, alt: "דוגמנית בסטודיו פילאטיס עם גרבי אחיזה ורודות" },
-  { src: modelStretch, alt: "דוגמנית בתרגיל מתיחה עם גרבי LŪNA" },
+  { src: modelStretch, alt: "דוגמנית בתרגיל מתיחה עם גרבי VELŌURA" },
   { src: modelLifestyle2, alt: "דוגמנית בסטודיו יוקרתי עם גרבי פילאטיס" },
 ];
 

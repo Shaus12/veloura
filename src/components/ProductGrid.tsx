@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import sockPinkStripe from "@/assets/sock-pink-stripe.png";
 import sockPinkDots from "@/assets/sock-pink-dots.png";
-import heroPilatesNew from "@/assets/hero-pilates-new.jpg";
+import productClassic from "@/assets/product-classic.jpg";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
 
@@ -28,7 +28,7 @@ const products = [
     name: "גרב אחיזה LŪNA Classic",
     price: 60,
     oldPrice: 90,
-    image: heroPilatesNew,
+    image: productClassic,
     color: "ורוד קלאסי",
   },
 ];

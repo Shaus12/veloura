@@ -2,9 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import sockPinkStripe from "@/assets/sock-pink-stripe.png";
 import sockPinkDots from "@/assets/sock-pink-dots.png";
-import productRoseQuartz from "@/assets/product-rose-quartz.jpg";
-import productChampagne from "@/assets/product-champagne.jpg";
-import productBallet from "@/assets/product-ballet.jpg";
+import heroPilatesNew from "@/assets/hero-pilates-new.jpg";
 import { useState } from "react";
 
 const products = [

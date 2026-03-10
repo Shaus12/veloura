@@ -22,27 +22,6 @@ const products = [
     image: sockPinkDots,
     color: "ורוד נקודות",
   },
-  {
-    name: "גרב Mary Jane Ballet",
-    price: "₪60",
-    oldPrice: "₪90",
-    image: productRoseQuartz,
-    color: "רוז קוורץ",
-  },
-  {
-    name: "גרב Mary Jane שמפניה",
-    price: "₪60",
-    oldPrice: "₪90",
-    image: productChampagne,
-    color: "שמפניה",
-  },
-  {
-    name: "גרב Mary Jane מאוב",
-    price: "₪60",
-    oldPrice: "₪90",
-    image: productBallet,
-    color: "בלט מאוב",
-  },
 ];
 
 const ProductCard = ({ product, index, isVisible }: { product: typeof products[0]; index: number; isVisible: boolean }) => {

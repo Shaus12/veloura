@@ -26,7 +26,7 @@ const products = [
   },
   {
     id: "sock-lifestyle",
-    name: "גרב אחיזה LŪNA Classic",
+    name: "גרב אחיזה VELŌURA Classic",
     price: 60,
     oldPrice: 90,
     image: productClassic,

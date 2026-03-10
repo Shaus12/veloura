@@ -51,7 +51,7 @@ const Chatbot = () => {
         <div className="fixed bottom-24 left-6 z-50 w-80 max-h-[28rem] bg-background rounded-3xl shadow-elevated border border-border flex flex-col overflow-hidden animate-scale-in">
           {/* Header */}
           <div className="bg-primary px-5 py-4 rounded-t-3xl">
-            <p className="font-serif text-lg text-primary-foreground">LŪNA צ׳אט</p>
+            <p className="font-serif text-lg text-primary-foreground">VELŌURA צ׳אט</p>
             <p className="text-xs font-sans text-primary-foreground/70">אנחנו כאן בשבילך</p>
           </div>
 

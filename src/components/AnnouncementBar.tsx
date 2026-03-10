@@ -7,7 +7,7 @@ const AnnouncementBar = () => {
 
   useEffect(() => {
     // Set end time to 24 hours from first visit
-    const storageKey = "luna-sale-end";
+    const storageKey = "veloura-sale-end";
     let endTime = localStorage.getItem(storageKey);
     if (!endTime) {
       const end = Date.now() + 24 * 60 * 60 * 1000;

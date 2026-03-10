@@ -39,7 +39,7 @@ const DifferenceSection = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            ההבדל של LŪNA
+            ההבדל של VELŌURA
           </h2>
         </div>
 

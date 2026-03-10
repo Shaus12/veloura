@@ -74,7 +74,7 @@ const Footer = () => {
           </div>
 
           <p className="text-xs font-sans text-background/30">
-            © 2026 LŪNA Pilates. כל הזכויות שמורות.
+            © 2026 VELŌURA. כל הזכויות שמורות.
           </p>
         </div>
       </div>

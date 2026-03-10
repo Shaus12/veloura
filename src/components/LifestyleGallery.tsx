@@ -31,7 +31,7 @@ const LifestyleGallery = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            LŪNA בפעולה
+            VELŌURA בפעולה
           </h2>
         </div>
 

@@ -23,7 +23,7 @@ const extras = [
   },
   {
     id: "rec-3",
-    name: "גומיית התנגדות LŪNA",
+    name: "גומיית התנגדות VELŌURA",
     price: 39,
     description: "גומיית לטקס איכותית לאימון בבית ובסטודיו",
     image: productResistanceBand,

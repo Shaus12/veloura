@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-pilates-new.jpg";
+import heroImage from "@/assets/hero-pilates-new.png";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const HeroSection = () => {

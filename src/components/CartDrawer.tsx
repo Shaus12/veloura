@@ -53,7 +53,11 @@ const CartDrawer = () => {
                 הוסיפי עוד ₪{250 - total} למשלוח חינם 🚚
               </p>
             )}
-            <Button variant="hero" className="w-full py-5 h-auto">
+            <Button
+              variant="hero"
+              className="w-full py-5 h-auto"
+              onClick={() => { setDrawerOpen(false); navigate("/checkout"); }}
+            >
               לתשלום
             </Button>
           </div>

@@ -1,8 +1,9 @@
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -23,23 +24,56 @@ const Navigation = () => {
 
         <div className="hidden md:flex items-center gap-10">
           <a href="#collection" className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300">
-            The Collection
+            הקולקציה
           </a>
           <a href="#technology" className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300">
-            Technology
+            טכנולוגיה
           </a>
           <a href="#stories" className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300">
-            Stories
+            סיפורים
+          </a>
+          <a href="#extras" className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300">
+            עוד מוצרים
           </a>
         </div>
 
-        <button className="relative text-foreground hover:text-primary transition-colors duration-300" aria-label="Shopping bag">
-          <ShoppingBag className="w-5 h-5" strokeWidth={1.5} />
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary rounded-full text-[10px] font-sans font-semibold flex items-center justify-center text-primary-foreground">
-            0
-          </span>
-        </button>
+        <div className="flex items-center gap-4">
+          <button className="relative text-foreground hover:text-primary transition-colors duration-300" aria-label="סל קניות">
+            <ShoppingBag className="w-5 h-5" strokeWidth={1.5} />
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary rounded-full text-[10px] font-sans font-semibold flex items-center justify-center text-primary-foreground">
+              0
+            </span>
+          </button>
+          <button
+            className="md:hidden text-foreground"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="תפריט"
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border px-6 py-6 space-y-4">
+          {[
+            { href: "#collection", label: "הקולקציה" },
+            { href: "#technology", label: "טכנולוגיה" },
+            { href: "#stories", label: "סיפורים" },
+            { href: "#extras", label: "עוד מוצרים" },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              className="block text-sm font-sans font-medium text-foreground/80 hover:text-foreground"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </header>
   );
 };

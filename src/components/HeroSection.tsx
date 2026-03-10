@@ -10,7 +10,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Luxury pilates studio with reformer in soft morning light"
+          alt="סטודיו פילאטיס יוקרתי עם רפורמר באור בוקר רך"
           className="w-full h-full object-cover"
           loading="eager"
         />
@@ -23,9 +23,9 @@ const HeroSection = () => {
             isVisible ? "animate-fade-up" : "opacity-0"
           }`}
         >
-          Elevate Every
+          הרימי כל
           <br />
-          <em className="italic">Movement</em>
+          <em className="italic">תנועה</em>
         </h1>
 
         <p
@@ -34,8 +34,8 @@ const HeroSection = () => {
           }`}
           style={{ animationDelay: "0.2s" }}
         >
-          The intersection of ballet-inspired elegance
-          <br className="hidden md:block" /> and professional-grade grip.
+          המפגש בין אלגנטיות בהשראת בלט
+          <br className="hidden md:block" /> לאחיזה מקצועית ברמה הגבוהה ביותר.
         </p>
 
         <div
@@ -43,7 +43,7 @@ const HeroSection = () => {
           style={{ animationDelay: "0.4s" }}
         >
           <Button variant="hero" size="lg" className="px-12 py-6 h-auto">
-            Shop the Collection
+            לקולקציה
           </Button>
         </div>
       </div>

@@ -183,7 +183,25 @@ const CheckoutPage = () => {
       const data = await response.json();
       if (data.success) {
         toast.success("התשלום בוצע בהצלחה! 🎉");
-        navigate("/");
+        // Send confirmation email (fire and forget)
+        fetch(`${supabaseUrl}/functions/v1/send-order-confirmation`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            customerName: customerNameRef.current,
+            customerEmail: customerEmailRef.current,
+            items: currentItems.map((i) => ({ name: i.name, price: i.price, quantity: i.quantity })),
+            total: totalRef.current,
+          }),
+        }).catch(() => {});
+        navigate("/thank-you", {
+          state: {
+            orderName: customerNameRef.current,
+            orderEmail: customerEmailRef.current,
+            orderTotal: totalRef.current,
+            orderItems: currentItems,
+          },
+        });
       } else {
         toast.error(data.error || "שגיאה בתשלום, נסי שוב");
       }
@@ -298,7 +316,7 @@ const CheckoutPage = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-sans font-medium text-foreground mb-1.5 block">דירה / קומה</label>
+                    <label className="text-sm font-sans font-medium text-foreground mb-1.5 block"><label className="text-sm font-sans font-medium text-foreground mb-1.5 block">דירה</label></label>
                     <Input
                       value={apartment}
                       onChange={(e) => setApartment(e.target.value)}

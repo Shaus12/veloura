@@ -1,9 +1,11 @@
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useCart } from "@/contexts/CartContext";
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { itemCount, setDrawerOpen } = useCart();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -38,11 +40,17 @@ const Navigation = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="relative text-foreground hover:text-primary transition-colors duration-300" aria-label="סל קניות">
+          <button
+            className="relative text-foreground hover:text-primary transition-colors duration-300"
+            aria-label="סל קניות"
+            onClick={() => setDrawerOpen(true)}
+          >
             <ShoppingBag className="w-5 h-5" strokeWidth={1.5} />
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary rounded-full text-[10px] font-sans font-semibold flex items-center justify-center text-primary-foreground">
-              0
-            </span>
+            {itemCount > 0 && (
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-destructive rounded-full text-[10px] font-sans font-semibold flex items-center justify-center text-destructive-foreground">
+                {itemCount}
+              </span>
+            )}
           </button>
           <button
             className="md:hidden text-foreground"
@@ -54,7 +62,6 @@ const Navigation = () => {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border px-6 py-6 space-y-4">
           {[

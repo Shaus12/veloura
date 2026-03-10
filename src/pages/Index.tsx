@@ -9,6 +9,7 @@ import TrustSection from "@/components/TrustSection";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
+import CartDrawer from "@/components/CartDrawer";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       <Footer />
       <Chatbot />
       <AccessibilityWidget />
+      <CartDrawer />
     </div>
   );
 };

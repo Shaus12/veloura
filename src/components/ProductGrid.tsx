@@ -5,6 +5,7 @@ import sockPinkDots from "@/assets/sock-pink-dots.png";
 import productClassic from "@/assets/product-classic.jpg";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const products = [
   {
@@ -36,6 +37,7 @@ const products = [
 const ProductCard = ({ product, index, isVisible }: { product: typeof products[0]; index: number; isVisible: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
   const { addItem } = useCart();
+  const navigate = useNavigate();
 
   return (
     <div
@@ -44,7 +46,10 @@ const ProductCard = ({ product, index, isVisible }: { product: typeof products[0
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative overflow-hidden rounded-3xl bg-card shadow-card mb-5 aspect-square">
+      <div
+        className="relative overflow-hidden rounded-3xl bg-card shadow-card mb-5 aspect-square cursor-pointer"
+        onClick={() => navigate(`/product/${product.id}`)}
+      >
         <img
           src={product.image}
           alt={product.name}
@@ -67,7 +72,10 @@ const ProductCard = ({ product, index, isVisible }: { product: typeof products[0
         <p className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-muted-foreground mb-1">
           {product.color}
         </p>
-        <h3 className="text-lg font-serif font-medium text-foreground mb-1">
+        <h3
+          className="text-lg font-serif font-medium text-foreground mb-1 cursor-pointer hover:text-primary transition-colors"
+          onClick={() => navigate(`/product/${product.id}`)}
+        >
           {product.name}
         </h3>
         <div className="flex items-center gap-2 mb-4">

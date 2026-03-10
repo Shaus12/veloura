@@ -5,22 +5,49 @@ import { useCart } from "@/contexts/CartContext";
 import Navigation from "@/components/Navigation";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import CartDrawer from "@/components/CartDrawer";
 import { ChevronRight, Minus, Plus, Star, Truck, RotateCcw, Shield } from "lucide-react";
 
 import sockPinkStripe from "@/assets/sock-pink-stripe.png";
 import sockPinkDots from "@/assets/sock-pink-dots.png";
 import productClassic from "@/assets/product-classic.jpg";
+import velouraDetail from "@/assets/veloura-sock-detail.png";
+import velouraHearts from "@/assets/veloura-hearts-socks.png";
 import productPilatesRing from "@/assets/product-pilates-ring.jpg";
 import productTowel from "@/assets/product-towel.jpg";
 import productResistanceBand from "@/assets/product-resistance-band.jpg";
+
+const productSpecs = {
+  activity: "YOGA, Daily Life, כושר גופני, מנדף לחות, טיולים רגליים, Ballet, Tennis, רכיבה על אופניים",
+  material: "Spandex / Nylon / Cotton",
+  sockType: "מזדמנים",
+  durability: "סטנדרטית",
+  features: "אנטי בקטריאלי, Sweat-Absorbent, נגד החלקה, Anti-Foul, Sporty, Thermo",
+  height: "צוות",
+  season: "סתיו",
+  pattern: "מוצק",
+  technics: "סרוג",
+  style: "ספורטיבי",
+  ageGroup: "Adults",
+  modelNumber: "DXZP002",
+  origin: "China",
+  packageSize: "20X15X3 ס\"מ",
+  weight: "0.100 ק\"ג",
+  moq: "20 זוגות",
+  customDesign: "עיצוב מותאם אישית - מקבלים",
+  customLogo: "לוגו מותאם אישית - מקבלים",
+  customPattern: "תבניות מותאמות אישית",
+  logoPosition: "Header card, Cuff, גוף, תחתון",
+};
 
 const allProducts = [
   {
     id: "sock-rose-quartz",
     name: "גרב אחיזה Rose Quartz",
-    price: 60,
+    price: 59.9,
+    priceDollar: 18.99,
     oldPrice: 90,
-    images: [sockPinkStripe],
+    images: [sockPinkStripe, velouraDetail],
     color: "ורוד פסים",
     description: "גרבי אחיזה מקצועיות בעיצוב אלגנטי עם פסים ורודים עדינים. בד רך ונושם עם סוליית סיליקון מלאה למקסימום יציבות על הרפורמר ובסטודיו.",
     details: ["בד כותנה מצרית 80%", "סוליית סיליקון מלאה", "תפרים שטוחים למניעת שפשופים", "מתאימות לפילאטיס, יוגה ובר"],
@@ -30,9 +57,10 @@ const allProducts = [
   {
     id: "sock-champagne",
     name: "גרב אחיזה Champagne",
-    price: 60,
+    price: 59.9,
+    priceDollar: 18.99,
     oldPrice: 90,
-    images: [sockPinkDots],
+    images: [sockPinkDots, velouraDetail],
     color: "ורוד נקודות",
     description: "גרבי אחיזה יוקרתיות בדוגמת נקודות שמפניה. שילוב מושלם בין סטייל לפונקציונליות עם אחיזה מקסימלית.",
     details: ["בד כותנה מצרית 80%", "סוליית סיליקון מלאה", "תפרים שטוחים למניעת שפשופים", "מתאימות לפילאטיס, יוגה ובר"],
@@ -41,12 +69,13 @@ const allProducts = [
   },
   {
     id: "sock-lifestyle",
-    name: "גרב אחיזה LŪNA Classic",
-    price: 60,
+    name: "גרב אחיזה VELŌURA Classic",
+    price: 59.9,
+    priceDollar: 18.99,
     oldPrice: 90,
-    images: [productClassic],
+    images: [productClassic, velouraHearts],
     color: "ורוד קלאסי",
-    description: "הגרב הקלאסית של LŪNA — עיצוב נצחי בגוון ורוד עדין. נוחות מירבית עם אחיזה מקצועית לכל סוגי האימונים.",
+    description: "הגרב הקלאסית של VELŌURA — עיצוב נצחי בגוון ורוד עדין. נוחות מירבית עם אחיזה מקצועית לכל סוגי האימונים.",
     details: ["בד כותנה מצרית 80%", "סוליית סיליקון מלאה", "תפרים שטוחים למניעת שפשופים", "מתאימות לפילאטיס, יוגה ובר"],
     sizes: ["S (35-37)", "M (38-40)", "L (41-43)"],
     category: "גרביים",
@@ -71,7 +100,7 @@ const allProducts = [
   },
   {
     id: "rec-3",
-    name: "גומיית התנגדות LŪNA",
+    name: "גומיית התנגדות VELŌURA",
     price: 39,
     images: [productResistanceBand],
     description: "גומיית לטקס איכותית לאימון בבית ובסטודיו. התנגדות בינונית מתאימה למגוון תרגילים.",
@@ -86,6 +115,29 @@ const reviews = [
   { name: "שירה כ.", rating: 4, text: "מאוד מרוצה, הבד רך ונעים והאחיזה חזקה. ממליצה.", date: "לפני חודש" },
 ];
 
+const specLabels: Record<string, string> = {
+  activity: "פעילות",
+  material: "חומר",
+  sockType: "סוג גרב",
+  durability: "עמידות",
+  features: "תכונות",
+  height: "גובה",
+  season: "עונה",
+  pattern: "סוג תבנית",
+  technics: "טכניקה",
+  style: "סגנון",
+  ageGroup: "קבוצת גיל",
+  modelNumber: "מספר דגם",
+  origin: "מקום ייצור",
+  packageSize: "גודל חבילה",
+  weight: "משקל",
+  moq: "הזמנה מינימלית",
+  customDesign: "עיצוב",
+  customLogo: "לוגו",
+  customPattern: "דפוס",
+  logoPosition: "מיקום לוגו",
+};
+
 const ProductPage = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
@@ -95,6 +147,7 @@ const ProductPage = () => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [showSpecs, setShowSpecs] = useState(false);
 
   if (!product) {
     return (
@@ -118,10 +171,13 @@ const ProductPage = () => {
     }
   };
 
+  const isSock = product.category === "גרביים";
+
   return (
     <div className="min-h-screen bg-background" dir="rtl">
       <AnnouncementBar />
       <Navigation />
+      <CartDrawer />
 
       {/* Breadcrumbs */}
       <div className="container mx-auto max-w-6xl px-6 pt-28 pb-4">
@@ -186,6 +242,9 @@ const ProductPage = () => {
 
             <div className="flex items-center gap-3 mb-6">
               <span className="text-2xl font-sans font-semibold text-foreground">₪{product.price}</span>
+              {product.priceDollar && (
+                <span className="text-lg font-sans font-medium text-muted-foreground">/ ${product.priceDollar}</span>
+              )}
               {product.oldPrice && (
                 <span className="text-lg font-sans font-light text-muted-foreground line-through">₪{product.oldPrice}</span>
               )}
@@ -283,8 +342,33 @@ const ProductPage = () => {
         </section>
       )}
 
+      {/* Full Specs (socks only) */}
+      {isSock && (
+        <section className="py-16 px-6">
+          <div className="container mx-auto max-w-6xl">
+            <button
+              onClick={() => setShowSpecs(!showSpecs)}
+              className="flex items-center gap-2 text-2xl font-serif font-normal text-foreground mb-8"
+            >
+              מפרט טכני מלא
+              <ChevronRight className={`w-5 h-5 transition-transform ${showSpecs ? "rotate-90" : "rotate-0"}`} />
+            </button>
+            {showSpecs && (
+              <div className="grid md:grid-cols-2 gap-x-12 gap-y-4 bg-card rounded-3xl p-8 shadow-card">
+                {Object.entries(productSpecs).map(([key, value]) => (
+                  <div key={key} className="flex justify-between items-start py-2 border-b border-border last:border-0">
+                    <span className="text-sm font-sans font-medium text-foreground">{specLabels[key] || key}</span>
+                    <span className="text-sm font-sans text-muted-foreground text-left max-w-[60%]">{value}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* Reviews */}
-      <section className="py-16 px-6">
+      <section className={`py-16 px-6 ${isSock ? "" : ""}`}>
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-2xl font-serif font-normal text-foreground mb-10">ביקורות לקוחות</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -326,7 +410,7 @@ const ProductPage = () => {
                     />
                   </div>
                   <h3 className="text-base font-serif font-medium text-foreground mb-1">{p.name}</h3>
-                  <p className="text-sm font-sans font-semibold text-foreground">₪{p.price}</p>
+                  <p className="text-sm font-sans font-semibold text-foreground">₪{p.price} / ${p.priceDollar}</p>
                 </button>
               ))}
             </div>

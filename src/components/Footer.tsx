@@ -59,7 +59,7 @@ const Footer = () => {
       {/* Bottom */}
       <div className="py-10 px-6">
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-6">
-          <span className="text-serif text-xl tracking-wider text-background/80">LŪNA</span>
+          <span className="text-serif text-xl tracking-wider text-background/80">VELŌURA</span>
 
           <div className="flex items-center gap-8">
             <a href="#" className="text-xs font-sans uppercase tracking-[0.15em] text-background/50 hover:text-background/80 transition-colors">
@@ -74,7 +74,7 @@ const Footer = () => {
           </div>
 
           <p className="text-xs font-sans text-background/30">
-            © 2026 LŪNA Pilates. כל הזכויות שמורות.
+            © 2026 VELŌURA. כל הזכויות שמורות.
           </p>
         </div>
       </div>

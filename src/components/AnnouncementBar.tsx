@@ -7,7 +7,7 @@ const AnnouncementBar = () => {
 
   useEffect(() => {
     // Set end time to 24 hours from first visit
-    const storageKey = "luna-sale-end";
+    const storageKey = "veloura-sale-end";
     let endTime = localStorage.getItem(storageKey);
     if (!endTime) {
       const end = Date.now() + 24 * 60 * 60 * 1000;
@@ -39,7 +39,7 @@ const AnnouncementBar = () => {
         <span className="font-medium">🚚 משלוח חינם בהזמנות מעל ₪250</span>
         <span className="text-background/40">|</span>
         <span className="font-semibold">
-          🔥 מבצע! גרביים ב-₪60 במקום ₪90 — נגמר בעוד{" "}
+          🔥 מבצע! גרביים ב-₪59.90 / $18.99 — נגמר בעוד{" "}
           <span className="inline-flex gap-1 font-mono tracking-wider bg-background/10 px-2 py-0.5 rounded-full">
             {pad(timeLeft.hours)}:{pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}
           </span>

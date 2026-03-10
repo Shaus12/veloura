@@ -11,7 +11,7 @@ const products = [
   {
     id: "sock-rose-quartz",
     name: "גרב אחיזה Rose Quartz",
-    price: 60,
+    price: 59.9,
     oldPrice: 90,
     image: sockPinkStripe,
     color: "ורוד פסים",
@@ -19,15 +19,15 @@ const products = [
   {
     id: "sock-champagne",
     name: "גרב אחיזה Champagne",
-    price: 60,
+    price: 59.9,
     oldPrice: 90,
     image: sockPinkDots,
     color: "ורוד נקודות",
   },
   {
     id: "sock-lifestyle",
-    name: "גרב אחיזה LŪNA Classic",
-    price: 60,
+    name: "גרב אחיזה VELŌURA Classic",
+    price: 59.9,
     oldPrice: 90,
     image: productClassic,
     color: "ורוד קלאסי",

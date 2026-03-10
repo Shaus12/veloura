@@ -20,8 +20,8 @@ const Navigation = () => {
       }`}
     >
       <nav className="container mx-auto flex items-center justify-between px-6 py-5">
-        <a href="#" className="text-serif text-2xl font-medium tracking-wider text-foreground">
-          LŪNA
+        <a href="/" className="flex items-center gap-2">
+          <img src="/veloura-logo.png" alt="VELŌURA" className="h-8" />
         </a>
 
         <div className="hidden md:flex items-center gap-10">

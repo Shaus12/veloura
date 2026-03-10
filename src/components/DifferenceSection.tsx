@@ -4,18 +4,18 @@ import { Shield, Sparkles, Heart } from "lucide-react";
 const features = [
   {
     icon: Shield,
-    title: "Precision Grip",
-    description: "Engineered silicone grip patterns provide unmatched stability on the reformer, so you can focus on form—not footing.",
+    title: "אחיזה מדויקת",
+    description: "דפוסי סיליקון מהנדסים מספקים יציבות חסרת תחרות על הרפורמר, כך שתוכלי להתמקד בטכניקה — לא בהחלקה.",
   },
   {
     icon: Sparkles,
-    title: "Hygiene Redefined",
-    description: "Your personal layer of protection. Anti-microbial, breathable mesh keeps you fresh from barre to brunch.",
+    title: "היגיינה מחודשת",
+    description: "השכבה האישית שלך. רשת נושמת ואנטי-בקטריאלית שומרת על רעננות מהבר לברנץ׳.",
   },
   {
     icon: Heart,
-    title: "Aesthetic Design",
-    description: "Studio-to-street style that looks as good as it performs. Because your socks should match your energy.",
+    title: "עיצוב אסתטי",
+    description: "סטייל מהסטודיו לרחוב שנראה טוב כמו שהוא מתפקד. כי הגרביים שלך צריכות להתאים לאנרגיה.",
   },
 ];
 
@@ -31,7 +31,7 @@ const DifferenceSection = () => {
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
-            Why LŪNA
+            למה LŪNA
           </p>
           <h2
             className={`text-4xl md:text-5xl font-serif font-normal text-foreground ${
@@ -39,7 +39,7 @@ const DifferenceSection = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            The LŪNA Difference
+            ההבדל של LŪNA
           </h2>
         </div>
 

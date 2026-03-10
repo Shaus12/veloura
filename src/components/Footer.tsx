@@ -16,7 +16,7 @@ const Footer = () => {
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
-            Newsletter
+            ניוזלטר
           </p>
           <h2
             className={`text-3xl md:text-4xl font-serif font-normal text-background mb-4 ${
@@ -24,7 +24,7 @@ const Footer = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            Join the Inner Circle
+            הצטרפי למעגל הפנימי
           </h2>
           <p
             className={`text-sm font-sans font-light text-background/60 mb-8 ${
@@ -32,7 +32,7 @@ const Footer = () => {
             }`}
             style={{ animationDelay: "0.2s" }}
           >
-            Early access to new collections, studio tips, and exclusive offers.
+            גישה מוקדמת לקולקציות חדשות, טיפים לסטודיו והצעות בלעדיות.
           </p>
 
           <div
@@ -41,7 +41,7 @@ const Footer = () => {
           >
             <input
               type="email"
-              placeholder="Your email"
+              placeholder="האימייל שלך"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="flex-1 px-5 py-3 rounded-full bg-background/10 border border-background/20 text-background placeholder:text-background/40 text-sm font-sans focus:outline-none focus:border-background/40 transition-colors"
@@ -50,7 +50,7 @@ const Footer = () => {
               variant="hero"
               className="bg-background text-luna-deep hover:bg-background/90 px-8"
             >
-              Join
+              הצטרפי
             </Button>
           </div>
         </div>
@@ -63,18 +63,18 @@ const Footer = () => {
 
           <div className="flex items-center gap-8">
             <a href="#" className="text-xs font-sans uppercase tracking-[0.15em] text-background/50 hover:text-background/80 transition-colors">
-              Privacy
+              פרטיות
             </a>
             <a href="#" className="text-xs font-sans uppercase tracking-[0.15em] text-background/50 hover:text-background/80 transition-colors">
-              Terms
+              תנאי שימוש
             </a>
             <a href="#" className="text-xs font-sans uppercase tracking-[0.15em] text-background/50 hover:text-background/80 transition-colors">
-              Contact
+              צור קשר
             </a>
           </div>
 
           <p className="text-xs font-sans text-background/30">
-            © 2026 LŪNA Pilates. All rights reserved.
+            © 2026 LŪNA Pilates. כל הזכויות שמורות.
           </p>
         </div>
       </div>

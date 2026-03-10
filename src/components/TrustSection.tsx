@@ -3,21 +3,21 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sophia M.",
-    role: "Pilates Instructor",
-    quote: "I've tried every grip sock on the market. LŪNA is the only brand that makes me feel both grounded and graceful on the reformer.",
+    name: "שירה מ.",
+    role: "מדריכת פילאטיס",
+    quote: "ניסיתי כל גרב אחיזה בשוק. LŪNA היא המותג היחיד שגורם לי להרגיש גם יציבה וגם אלגנטית על הרפורמר.",
     rating: 5,
   },
   {
-    name: "Elena K.",
-    role: "Studio Owner",
-    quote: "My clients always ask about these socks. The Mary Jane design is just stunning—and the grip is truly unmatched.",
+    name: "נועה כ.",
+    role: "בעלת סטודיו",
+    quote: "המתאמנות שלי תמיד שואלות על הגרביים האלה. העיצוב פשוט מהמם — והאחיזה באמת ללא תחרות.",
     rating: 5,
   },
   {
-    name: "Ava T.",
-    role: "Reformer Enthusiast",
-    quote: "Finally, a sock that looks as good as my outfit. I wear them from the studio to coffee without a second thought.",
+    name: "מאיה ת.",
+    role: "חובבת רפורמר",
+    quote: "סוף סוף, גרב שנראית טוב כמו האאוטפיט שלי. אני הולכת איתן מהסטודיו לקפה בלי לחשוב פעמיים.",
     rating: 5,
   },
 ];
@@ -38,7 +38,7 @@ const TrustSection = () => {
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
-            As Featured In
+            כפי שהופיע ב
           </p>
           <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
             {featuredIn.map((name, i) => (
@@ -65,7 +65,7 @@ const TrustSection = () => {
                 isVisible2 ? "animate-fade-up" : "opacity-0"
               }`}
             >
-              Member Stories
+              סיפורי חברות
             </p>
             <h2
               className={`text-4xl md:text-5xl font-serif font-normal text-foreground ${
@@ -73,7 +73,7 @@ const TrustSection = () => {
               }`}
               style={{ animationDelay: "0.1s" }}
             >
-              Loved by the Community
+              אהובות על הקהילה
             </h2>
           </div>
 
@@ -92,7 +92,7 @@ const TrustSection = () => {
                   ))}
                 </div>
                 <p className="text-sm font-sans font-light leading-relaxed text-foreground/80 mb-6 italic">
-                  "{t.quote}"
+                  &ldquo;{t.quote}&rdquo;
                 </p>
                 <div>
                   <p className="text-sm font-sans font-semibold text-foreground">{t.name}</p>

@@ -97,3 +97,14 @@
     box-shadow: var(--shadow-elevated);
   }
 }
+
+/* Accessibility: High Contrast */
+body.high-contrast {
+  filter: contrast(1.4);
+}
+
+/* Accessibility: Highlight Links */
+body.highlight-links a {
+  outline: 2px solid hsl(var(--primary)) !important;
+  outline-offset: 2px;
+}

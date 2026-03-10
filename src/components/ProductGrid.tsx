@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import sockPinkStripe from "@/assets/sock-pink-stripe.png";
+import sockPinkDots from "@/assets/sock-pink-dots.png";
 import productRoseQuartz from "@/assets/product-rose-quartz.jpg";
 import productChampagne from "@/assets/product-champagne.jpg";
 import productBallet from "@/assets/product-ballet.jpg";
@@ -7,22 +9,39 @@ import { useState } from "react";
 
 const products = [
   {
-    name: "The Rose Quartz Mary Jane",
-    price: "$42",
+    name: "גרב אחיזה Rose Quartz",
+    price: "₪60",
+    oldPrice: "₪90",
+    image: sockPinkStripe,
+    color: "ורוד פסים",
+  },
+  {
+    name: "גרב אחיזה Champagne",
+    price: "₪60",
+    oldPrice: "₪90",
+    image: sockPinkDots,
+    color: "ורוד נקודות",
+  },
+  {
+    name: "גרב Mary Jane Ballet",
+    price: "₪60",
+    oldPrice: "₪90",
     image: productRoseQuartz,
-    color: "Rose Quartz",
+    color: "רוז קוורץ",
   },
   {
-    name: "The Champagne Mary Jane",
-    price: "$42",
+    name: "גרב Mary Jane שמפניה",
+    price: "₪60",
+    oldPrice: "₪90",
     image: productChampagne,
-    color: "Champagne",
+    color: "שמפניה",
   },
   {
-    name: "The Ballet Mauve Mary Jane",
-    price: "$42",
+    name: "גרב Mary Jane מאוב",
+    price: "₪60",
+    oldPrice: "₪90",
     image: productBallet,
-    color: "Ballet Mauve",
+    color: "בלט מאוב",
   },
 ];
 
@@ -50,6 +69,9 @@ const ProductCard = ({ product, index, isVisible }: { product: typeof products[0
             isHovered ? "opacity-100" : "opacity-0"
           }`}
         />
+        <span className="absolute top-4 right-4 bg-destructive text-destructive-foreground text-[10px] font-sans font-bold uppercase px-3 py-1 rounded-full">
+          מבצע
+        </span>
       </div>
 
       <div className="px-1">
@@ -59,11 +81,16 @@ const ProductCard = ({ product, index, isVisible }: { product: typeof products[0
         <h3 className="text-lg font-serif font-medium text-foreground mb-1">
           {product.name}
         </h3>
-        <p className="text-sm font-sans font-light text-muted-foreground mb-4">
-          {product.price}
-        </p>
+        <div className="flex items-center gap-2 mb-4">
+          <p className="text-sm font-sans font-semibold text-foreground">
+            {product.price}
+          </p>
+          <p className="text-sm font-sans font-light text-muted-foreground line-through">
+            {product.oldPrice}
+          </p>
+        </div>
         <Button variant="subtle" size="sm" className="px-6">
-          Add to Cart
+          הוסיפי לסל
         </Button>
       </div>
     </div>
@@ -82,7 +109,7 @@ const ProductGrid = () => {
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
-            The Collection
+            הקולקציה
           </p>
           <h2
             className={`text-4xl md:text-5xl font-serif font-normal text-foreground ${
@@ -90,11 +117,11 @@ const ProductGrid = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            The Mary Jane Series
+            סדרת גרבי האחיזה
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-10">
           {products.map((product, i) => (
             <ProductCard key={product.name} product={product} index={i} isVisible={isVisible} />
           ))}

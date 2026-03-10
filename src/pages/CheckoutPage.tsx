@@ -298,7 +298,7 @@ const CheckoutPage = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-sans font-medium text-foreground mb-1.5 block">דירה / קומה</label>
+                    <label className="text-sm font-sans font-medium text-foreground mb-1.5 block"><label className="text-sm font-sans font-medium text-foreground mb-1.5 block">דירה</label></label>
                     <Input
                       value={apartment}
                       onChange={(e) => setApartment(e.target.value)}

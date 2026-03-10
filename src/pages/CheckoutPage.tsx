@@ -52,6 +52,27 @@ const CheckoutPage = () => {
   const [apartment, setApartment] = useState("");
   const [zipCode, setZipCode] = useState("");
 
+  // Refs to keep current values accessible in Sumit callback (avoids stale closure)
+  const customerNameRef = useRef(customerName);
+  const customerEmailRef = useRef(customerEmail);
+  const customerPhoneRef = useRef(customerPhone);
+  const streetRef = useRef(street);
+  const cityRef = useRef(city);
+  const apartmentRef = useRef(apartment);
+  const zipCodeRef = useRef(zipCode);
+  const appliedCouponRef = useRef<string | null>(null);
+  const discountRef = useRef(0);
+  const totalRef = useRef(0);
+  const itemsRef = useRef(items);
+
+  useEffect(() => { customerNameRef.current = customerName; }, [customerName]);
+  useEffect(() => { customerEmailRef.current = customerEmail; }, [customerEmail]);
+  useEffect(() => { customerPhoneRef.current = customerPhone; }, [customerPhone]);
+  useEffect(() => { streetRef.current = street; }, [street]);
+  useEffect(() => { cityRef.current = city; }, [city]);
+  useEffect(() => { apartmentRef.current = apartment; }, [apartment]);
+  useEffect(() => { zipCodeRef.current = zipCode; }, [zipCode]);
+
   // Coupon
   const [couponCode, setCouponCode] = useState("");
   const [appliedCoupon, setAppliedCoupon] = useState<string | null>(null);

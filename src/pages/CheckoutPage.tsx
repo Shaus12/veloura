@@ -183,6 +183,17 @@ const CheckoutPage = () => {
       const data = await response.json();
       if (data.success) {
         toast.success("התשלום בוצע בהצלחה! 🎉");
+        // Send confirmation email (fire and forget)
+        fetch(`${supabaseUrl}/functions/v1/send-order-confirmation`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            customerName: customerNameRef.current,
+            customerEmail: customerEmailRef.current,
+            items: currentItems.map((i) => ({ name: i.name, price: i.price, quantity: i.quantity })),
+            total: totalRef.current,
+          }),
+        }).catch(() => {});
         navigate("/thank-you", {
           state: {
             orderName: customerNameRef.current,

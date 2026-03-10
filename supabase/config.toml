@@ -1,1 +1,4 @@
 project_id = "edzyyqaqkkyuhqehtnee"
+
+[functions.sumit-charge]
+verify_jwt = false

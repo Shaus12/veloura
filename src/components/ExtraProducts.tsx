@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
-import modelReformer from "@/assets/model-reformer-1.jpg";
-import modelStretch from "@/assets/model-stretch-1.jpg";
-import modelLifestyle2 from "@/assets/model-lifestyle-2.jpg";
+import productPilatesRing from "@/assets/product-pilates-ring.jpg";
+import productTowel from "@/assets/product-towel.jpg";
+import productResistanceBand from "@/assets/product-resistance-band.jpg";
 
 const extras = [
   {
@@ -12,21 +12,21 @@ const extras = [
     name: "טבעת פילאטיס פרימיום",
     price: 89,
     description: "טבעת התנגדות מקצועית לחיטוב וחיזוק",
-    image: modelReformer,
+    image: productPilatesRing,
   },
   {
     id: "rec-2",
     name: "מגבת סטודיו מיקרופייבר",
     price: 49,
     description: "מגבת רכה וסופגת במיוחד לאימון",
-    image: modelStretch,
+    image: productTowel,
   },
   {
     id: "rec-3",
     name: "גומיית התנגדות LŪNA",
     price: 39,
     description: "גומיית לטקס איכותית לאימון בבית ובסטודיו",
-    image: modelLifestyle2,
+    image: productResistanceBand,
   },
 ];
 

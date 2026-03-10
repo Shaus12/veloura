@@ -72,7 +72,10 @@ const ProductCard = ({ product, index, isVisible }: { product: typeof products[0
         <p className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-muted-foreground mb-1">
           {product.color}
         </p>
-        <h3 className="text-lg font-serif font-medium text-foreground mb-1">
+        <h3
+          className="text-lg font-serif font-medium text-foreground mb-1 cursor-pointer hover:text-primary transition-colors"
+          onClick={() => navigate(`/product/${product.id}`)}
+        >
           {product.name}
         </h3>
         <div className="flex items-center gap-2 mb-4">

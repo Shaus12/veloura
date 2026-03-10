@@ -16,39 +16,48 @@ export type Database = {
     Tables: {
       orders: {
         Row: {
+          coupon_code: string | null
           created_at: string
           customer_email: string
           customer_name: string
           customer_phone: string | null
+          discount_amount: number | null
           id: string
           items: Json
           payment_token: string | null
+          shipping_address: Json | null
           shipping_cost: number
           status: string
           sumit_response: Json | null
           total_amount: number
         }
         Insert: {
+          coupon_code?: string | null
           created_at?: string
           customer_email: string
           customer_name: string
           customer_phone?: string | null
+          discount_amount?: number | null
           id?: string
           items: Json
           payment_token?: string | null
+          shipping_address?: Json | null
           shipping_cost?: number
           status?: string
           sumit_response?: Json | null
           total_amount: number
         }
         Update: {
+          coupon_code?: string | null
           created_at?: string
           customer_email?: string
           customer_name?: string
           customer_phone?: string | null
+          discount_amount?: number | null
           id?: string
           items?: Json
           payment_token?: string | null
+          shipping_address?: Json | null
           shipping_cost?: number
           status?: string
           sumit_response?: Json | null

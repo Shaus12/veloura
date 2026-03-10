@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
@@ -13,6 +14,7 @@ const recommendations = [
 ];
 
 const CartDrawer = () => {
+  const navigate = useNavigate();
   const { items, removeItem, addItem, itemCount, isDrawerOpen, setDrawerOpen } = useCart();
   const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
@@ -53,7 +55,11 @@ const CartDrawer = () => {
                 הוסיפי עוד ₪{250 - total} למשלוח חינם 🚚
               </p>
             )}
-            <Button variant="hero" className="w-full py-5 h-auto">
+            <Button
+              variant="hero"
+              className="w-full py-5 h-auto"
+              onClick={() => { setDrawerOpen(false); navigate("/checkout"); }}
+            >
               לתשלום
             </Button>
           </div>

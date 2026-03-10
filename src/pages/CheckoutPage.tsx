@@ -183,7 +183,14 @@ const CheckoutPage = () => {
       const data = await response.json();
       if (data.success) {
         toast.success("התשלום בוצע בהצלחה! 🎉");
-        navigate("/");
+        navigate("/thank-you", {
+          state: {
+            orderName: customerNameRef.current,
+            orderEmail: customerEmailRef.current,
+            orderTotal: totalRef.current,
+            orderItems: currentItems,
+          },
+        });
       } else {
         toast.error(data.error || "שגיאה בתשלום, נסי שוב");
       }

@@ -32,6 +32,13 @@ const products = [
     image: productClassic,
     color: "ורוד קלאסי",
   },
+  {
+    id: "test-product",
+    name: "🧪 מוצר בדיקה",
+    price: 1,
+    image: sockPinkStripe,
+    color: "בדיקה",
+  },
 ];
 
 const ProductCard = ({ product, index, isVisible }: { product: typeof products[0]; index: number; isVisible: boolean }) => {

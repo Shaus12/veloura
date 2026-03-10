@@ -31,7 +31,7 @@ const DifferenceSection = () => {
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
-            למה LŪNA
+            למה VELŌURA
           </p>
           <h2
             className={`text-4xl md:text-5xl font-serif font-normal text-foreground ${

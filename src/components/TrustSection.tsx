@@ -1,3 +1,5 @@
+"use client";
+
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Star } from "lucide-react";
 

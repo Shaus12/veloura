@@ -2,7 +2,14 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/app/**/*.{ts,tsx}",
+    "./src/components/**/*.{ts,tsx}",
+    "./src/pages/**/*.{ts,tsx}"
+  ],
   prefix: "",
   theme: {
     container: {
@@ -14,8 +21,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["Playfair Display", "Georgia", "serif"],
-        sans: ["Montserrat", "system-ui", "sans-serif"],
+        serif: ["Heebo", "sans-serif"],
+        sans: ["Assistant", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -53,8 +60,8 @@ export default {
         },
         luna: {
           dusty: "hsl(var(--luna-dusty-rose))",
-          champagne: "hsl(var(--luna-champagne))",
-          quartz: "hsl(var(--luna-rose-quartz))",
+          lightBlue: "hsl(var(--luna-light-blue))",
+          beige: "hsl(var(--luna-beige))",
           cream: "hsl(var(--luna-cream))",
           deep: "hsl(var(--luna-deep))",
         },

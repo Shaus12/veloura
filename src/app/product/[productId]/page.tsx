@@ -1,5 +1,7 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
+"use client";
+
+import { useParams, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import Navigation from "@/components/Navigation";
@@ -8,14 +10,12 @@ import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import { ChevronRight, Minus, Plus, Star, Truck, RotateCcw, Shield } from "lucide-react";
 
-import sockPinkStripe from "@/assets/sock-pink-stripe.png";
-import sockPinkDots from "@/assets/sock-pink-dots.png";
-import productClassic from "@/assets/product-classic.jpg";
-import velouraDetail from "@/assets/veloura-sock-detail.png";
-import velouraHearts from "@/assets/veloura-hearts-socks.png";
-import productPilatesRing from "@/assets/product-pilates-ring.jpg";
-import productTowel from "@/assets/product-towel.jpg";
-import productResistanceBand from "@/assets/product-resistance-band.jpg";
+import imgClassic from "@/assets/product-classic.jpg";
+import imgChampagne from "@/assets/product-champagne.jpg";
+import imgBallet from "@/assets/product-ballet.jpg";
+import imgRoseQuartz from "@/assets/product-rose-quartz.jpg";
+import imgRing from "@/assets/product-pilates-ring.jpg";
+import imgBand from "@/assets/product-resistance-band.jpg";
 
 const productSpecs = {
   activity: "YOGA, Daily Life, כושר גופני, מנדף לחות, טיולים רגליים, Ballet, Tennis, רכיבה על אופניים",
@@ -42,83 +42,81 @@ const productSpecs = {
 
 const allProducts = [
   {
-    id: "sock-rose-quartz",
-    name: "גרב אחיזה Rose Quartz",
-    price: 59.9,
-    priceDollar: 18.99,
-    oldPrice: 90,
-    images: [sockPinkStripe, velouraDetail],
-    color: "ורוד פסים",
-    description: "גרבי אחיזה מקצועיות בעיצוב אלגנטי עם פסים ורודים עדינים. בד רך ונושם עם סוליית סיליקון מלאה למקסימום יציבות על הרפורמר ובסטודיו.",
-    details: ["בד כותנה מצרית 80%", "סוליית סיליקון מלאה", "תפרים שטוחים למניעת שפשופים", "מתאימות לפילאטיס, יוגה ובר"],
+    id: "veloura-grip-classic",
+    name: "גרבי אחיזה Cloud",
+    price: 55,
+    priceDollar: 15,
+    oldPrice: 65,
+    images: [imgClassic.src],
+    color: "שחור קלאסי",
+    description: "גרבי אחיזה מכותנה אורגנית לנשימה ואחיזה מקסימלית על הרפורמר. עיצוב נקי וקלאסי שמתאים לכל לוק בסטודיו.",
+    details: ["בד נושם ורך", "אחיזת סיליקון מלאה", "תפרים שטוחים", "מושלם ל-Reformer Girlies"],
     sizes: ["S (35-37)", "M (38-40)", "L (41-43)"],
-    category: "גרביים",
+    category: "Grip Socks"
   },
   {
-    id: "sock-champagne",
-    name: "גרב אחיזה Champagne",
-    price: 59.9,
-    priceDollar: 18.99,
-    oldPrice: 90,
-    images: [sockPinkDots, velouraDetail],
-    color: "ורוד נקודות",
-    description: "גרבי אחיזה יוקרתיות בדוגמת נקודות שמפניה. שילוב מושלם בין סטייל לפונקציונליות עם אחיזה מקסימלית.",
-    details: ["בד כותנה מצרית 80%", "סוליית סיליקון מלאה", "תפרים שטוחים למניעת שפשופים", "מתאימות לפילאטיס, יוגה ובר"],
+    id: "veloura-grip-champagne",
+    name: "גרבי אחיזה Cloud",
+    price: 55,
+    priceDollar: 15,
+    oldPrice: 65,
+    images: [imgChampagne.src],
+    color: "שמפניה עדינה",
+    description: "גרבי אחיזה מכותנה אורגנית לנשימה ואחיזה מקסימלית על הרפורמר בעיצוב עדין של שמפניה.",
+    details: ["בד נושם ורך", "אחיזת סיליקון מלאה", "תפרים שטוחים", "מושלם ל-Reformer Girlies"],
     sizes: ["S (35-37)", "M (38-40)", "L (41-43)"],
-    category: "גרביים",
+    category: "Grip Socks"
   },
   {
-    id: "sock-lifestyle",
-    name: "גרב אחיזה VELŌURA Classic",
-    price: 59.9,
-    priceDollar: 18.99,
-    oldPrice: 90,
-    images: [productClassic, velouraHearts],
-    color: "ורוד קלאסי",
-    description: "הגרב הקלאסית של VELŌURA — עיצוב נצחי בגוון ורוד עדין. נוחות מירבית עם אחיזה מקצועית לכל סוגי האימונים.",
-    details: ["בד כותנה מצרית 80%", "סוליית סיליקון מלאה", "תפרים שטוחים למניעת שפשופים", "מתאימות לפילאטיס, יוגה ובר"],
+    id: "veloura-grip-ballet",
+    name: "גרבי אחיזה Cloud",
+    price: 55,
+    priceDollar: 15,
+    oldPrice: 65,
+    images: [imgBallet.src],
+    color: "ורוד בלט",
+    description: "גוון ורוד בלט עדין לסטודיו. אחיזה חזקה וסטייל בלתי מתפשר לשעות הפילאטיס שלך.",
+    details: ["בד נושם ורך", "אחיזת סיליקון מלאה", "תפרים שטוחים", "מושלם ל-Reformer Girlies"],
     sizes: ["S (35-37)", "M (38-40)", "L (41-43)"],
-    category: "גרביים",
+    category: "Grip Socks"
   },
   {
-    id: "rec-1",
-    name: "טבעת פילאטיס פרימיום",
+    id: "veloura-grip-rose-quartz",
+    name: "גרבי אחיזה Cloud",
+    price: 55,
+    priceDollar: 15,
+    oldPrice: 65,
+    images: [imgRoseQuartz.src],
+    color: "רוז קוורץ",
+    description: "רוז קוורץ טרנדי - שילוב של נוחות ואסתטיקה לכל סטודיו שתבחרי.",
+    details: ["בד נושם ורך", "אחיזת סיליקון מלאה", "תפרים שטוחים", "עיצוב אסתטי במיוחד"],
+    sizes: ["S (35-37)", "M (38-40)", "L (41-43)"],
+    category: "Grip Socks"
+  },
+  {
+    id: "veloura-magic-circle",
+    name: "טבעת פילאטיס Magic Circle",
+    price: 120,
+    priceDollar: 35,
+    oldPrice: 150,
+    images: [imgRing.src],
+    color: "בז' / עץ מנגו",
+    description: "ההתנגדות המושלמת לסטודיו הביתי שלך מכוסה בחומרים עמידים ונעימים למגע בגימור בז' קלאסי.",
+    details: ["מעטפת נעימה למגע", "התנגדות חזקה וגמישה לאורך זמן", "מושלם חיזוק שרירי ליבה וירכיים", "עיצוב מינימליסטי מתקדם"],
+    category: "Equipment"
+  },
+  {
+    id: "veloura-resistance-band",
+    name: "סט גומיות התנגדות מבד",
     price: 89,
-    images: [productPilatesRing],
-    description: "טבעת התנגדות מקצועית לחיטוב וחיזוק. עשויה מפיברגלס קל משקל עם ריפודי EVA נוחים.",
-    details: ["פיברגלס קל משקל", "ריפודי EVA אנטומיים", "קוטר 36 ס\"מ", "מתאימה לכל הרמות"],
-    category: "אביזרים",
-  },
-  {
-    id: "rec-2",
-    name: "מגבת סטודיו מיקרופייבר",
-    price: 49,
-    images: [productTowel],
-    description: "מגבת סטודיו רכה וסופגת במיוחד. ייבוש מהיר ונוחה לנשיאה.",
-    details: ["מיקרופייבר 300 GSM", "ייבוש מהיר", "40x80 ס\"מ", "ניתנת לכביסה במכונה"],
-    category: "אביזרים",
-  },
-  {
-    id: "rec-3",
-    name: "גומיית התנגדות VELŌURA",
-    price: 39,
-    images: [productResistanceBand],
-    description: "גומיית לטקס איכותית לאימון בבית ובסטודיו. התנגדות בינונית מתאימה למגוון תרגילים.",
-    details: ["לטקס טבעי", "התנגדות בינונית", "אורך 200 ס\"מ", "כולל שקית נשיאה"],
-    category: "אביזרים",
-  },
-  {
-    id: "test-product",
-    name: "🧪 מוצר בדיקה - ₪1",
-    price: 1,
-    priceDollar: 0.3,
-    images: [sockPinkStripe],
-    color: "בדיקה",
-    description: "מוצר בדיקה לווידוא תהליך התשלום. מחיר: ₪1 בלבד.",
-    details: ["מוצר בדיקה בלבד", "לא למכירה"],
-    sizes: ["M (38-40)"],
-    category: "בדיקה",
-  },
+    priceDollar: 25,
+    oldPrice: 110,
+    images: [imgBand.src],
+    color: "סט גווני אדמה",
+    description: "גומיות מבד עבה שלא מחליק לעולם. עיצוב גווני אדמה שמרגיעים את העיניים במהלך כל אימון ביתי.",
+    details: ["שלוש רמות התנגדות", "לא מתקפל או מחליק מחומר עמיד", "גימור אסתטי איכותי", "מגיע בתיקייה תואמת"],
+    category: "Equipment"
+  }
 ];
 
 const reviews = [
@@ -152,7 +150,7 @@ const specLabels: Record<string, string> = {
 
 const ProductPage = () => {
   const { productId } = useParams();
-  const navigate = useNavigate();
+  const router = useRouter();
   const { addItem } = useCart();
 
   const product = allProducts.find((p) => p.id === productId);
@@ -166,7 +164,7 @@ const ProductPage = () => {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-serif text-foreground mb-4">המוצר לא נמצא</h1>
-          <Button variant="hero" onClick={() => navigate("/")}>חזרה לדף הבית</Button>
+          <Button variant="hero" onClick={() => router.push("/")}>חזרה לדף הבית</Button>
         </div>
       </div>
     );
@@ -194,7 +192,7 @@ const ProductPage = () => {
       {/* Breadcrumbs */}
       <div className="container mx-auto max-w-6xl px-6 pt-28 pb-4">
         <nav className="flex items-center gap-1 text-xs font-sans text-muted-foreground">
-          <button onClick={() => navigate("/")} className="hover:text-foreground transition-colors">דף הבית</button>
+          <button onClick={() => router.push("/")} className="hover:text-foreground transition-colors">דף הבית</button>
           <ChevronRight className="w-3 h-3 rotate-180" />
           <span className="text-foreground">{product.name}</span>
         </nav>
@@ -411,7 +409,7 @@ const ProductPage = () => {
               {similarProducts.map((p) => (
                 <button
                   key={p.id}
-                  onClick={() => { navigate(`/product/${p.id}`); window.scrollTo(0, 0); }}
+                  onClick={() => { router.push(`/product/${p.id}`); window.scrollTo(0, 0); }}
                   className="text-right group"
                 >
                   <div className="overflow-hidden rounded-3xl bg-card shadow-card mb-4 aspect-square">

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Backgrounds & Text: Soft Beige & Earthy neutrals */
+    --background: 35 30% 96%; /* #f8f6f3 - Soft warm beige */
+    --foreground: 20 15% 20%; /* #3b3330 - Soft warm dark for text */
+
+    --card: 35 40% 98%; 
+    --card-foreground: 20 15% 20%;
+
+    --popover: 35 40% 98%;
+    --popover-foreground: 20 15% 20%;
+
+    /* Primary: Soft Pink/Dusty Rose */
+    --primary: 345 35% 82%; /* #dfb8c0 */
+    --primary-foreground: 20 15% 20%;
+
+    /* Secondary: Light Pastel Blue */
+    --secondary: 205 30% 88%; /* #d3e1eb */
+    --secondary-foreground: 20 15% 20%;
+
+    /* Muted/Accents */
+    --muted: 35 15% 90%;
+    --muted-foreground: 20 10% 45%;
+
+    --accent: 345 35% 82%; 
+    --accent-foreground: 20 15% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 20% 86%;
+    --input: 35 20% 86%;
+    --ring: 345 35% 82%;
+
+    --radius: 1.25rem;
+
+    --sidebar-background: 35 30% 96%;
+    --sidebar-foreground: 20 15% 20%;
+    --sidebar-primary: 345 35% 82%;
+    --sidebar-primary-foreground: 20 15% 20%;
+    --sidebar-accent: 205 30% 88%;
+    --sidebar-accent-foreground: 20 15% 20%;
+    --sidebar-border: 35 20% 86%;
+    --sidebar-ring: 345 35% 82%;
+
+    /* Custom tokens */
+    --luna-dusty-rose: 345 35% 82%;
+    --luna-light-blue: 205 30% 88%;
+    --luna-beige: 35 30% 92%;
+    --luna-cream: 35 40% 98%;
+    --luna-deep: 20 15% 20%;
+
+    --font-serif: 'Heebo', sans-serif;
+    --font-sans: 'Assistant', sans-serif;
+
+    --shadow-soft: 0 4px 30px -4px hsl(35 20% 86% / 0.5);
+    --shadow-card: 0 8px 40px -8px hsl(35 20% 86% / 0.4);
+    --shadow-elevated: 0 20px 60px -15px hsl(35 20% 86% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  .text-serif {
+    font-family: var(--font-serif);
+  }
+
+  .text-sans {
+    font-family: var(--font-sans);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+}
+
+/* Accessibility: High Contrast */
+body.high-contrast {
+  filter: contrast(1.4);
+}
+
+/* Accessibility: Highlight Links */
+body.highlight-links a {
+  outline: 2px solid hsl(var(--primary)) !important;
+  outline-offset: 2px;
+}

@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Accessibility, ZoomIn, ZoomOut, Eye, Type } from "lucide-react";
 

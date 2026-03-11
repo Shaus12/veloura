@@ -1,32 +1,30 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
-import productPilatesRing from "@/assets/product-pilates-ring.jpg";
-import productTowel from "@/assets/product-towel.jpg";
-import productResistanceBand from "@/assets/product-resistance-band.jpg";
-
 const extras = [
   {
-    id: "rec-1",
-    name: "טבעת פילאטיס פרימיום",
-    price: 89,
-    description: "טבעת התנגדות מקצועית לחיטוב וחיזוק",
-    image: productPilatesRing,
+    id: "luna-towel",
+    name: "מגבת מיקורפייבר ״Clean Girl״",
+    price: 65,
+    description: "ייבוש מהיר, סופר רכה, שומרת עלייך ועל המזרן לאורך כל השיעור",
+    image: "https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&q=80",
   },
   {
-    id: "rec-2",
-    name: "מגבת סטודיו מיקרופייבר",
-    price: 49,
-    description: "מגבת רכה וסופגת במיוחד לאימון",
-    image: productTowel,
+    id: "luna-band",
+    name: "גומיות התנגדות (Pistachio Edition)",
+    price: 35,
+    description: "חובה בתיק - התנגדות מושלמת לחימום ולעבודה בבית",
+    image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?auto=format&fit=crop&q=80",
   },
   {
-    id: "rec-3",
-    name: "גומיית התנגדות VELŌURA",
-    price: 39,
-    description: "גומיית לטקס איכותית לאימון בבית ובסטודיו",
-    image: productResistanceBand,
+    id: "luna-bottle",
+    name: "בקבוק נירוסטה אסתטי 1 ליטר",
+    price: 110,
+    description: "להישאר בהידרציה לאורך כל היום, שומר על קור ל-24 שעות",
+    image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80",
   },
 ];
 

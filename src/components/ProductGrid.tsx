@@ -1,43 +1,79 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import sockPinkStripe from "@/assets/sock-pink-stripe.png";
-import sockPinkDots from "@/assets/sock-pink-dots.png";
-import productClassic from "@/assets/product-classic.jpg";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
+
+import imgClassic from "@/assets/product-classic.jpg";
+import imgChampagne from "@/assets/product-champagne.jpg";
+import imgBallet from "@/assets/product-ballet.jpg";
+import imgRoseQuartz from "@/assets/product-rose-quartz.jpg";
+import imgRing from "@/assets/product-pilates-ring.jpg";
+import imgBand from "@/assets/product-resistance-band.jpg";
 
 const products = [
   {
-    id: "sock-rose-quartz",
-    name: "גרב אחיזה Rose Quartz",
-    price: 59.9,
-    oldPrice: 90,
-    image: sockPinkStripe,
-    color: "ורוד פסים",
+    id: "veloura-grip-classic",
+    name: "גרבי אחיזה Cloud",
+    price: 55,
+    oldPrice: 65,
+    image: imgClassic.src,
+    color: "שחור קלאסי",
+    category: "Grip Socks"
   },
   {
-    id: "sock-champagne",
-    name: "גרב אחיזה Champagne",
-    price: 59.9,
-    oldPrice: 90,
-    image: sockPinkDots,
-    color: "ורוד נקודות",
+    id: "veloura-grip-champagne",
+    name: "גרבי אחיזה Cloud",
+    price: 55,
+    oldPrice: 65,
+    image: imgChampagne.src,
+    color: "שמפניה עדינה",
+    category: "Grip Socks"
   },
   {
-    id: "sock-lifestyle",
-    name: "גרב אחיזה VELŌURA Classic",
-    price: 59.9,
-    oldPrice: 90,
-    image: productClassic,
-    color: "ורוד קלאסי",
+    id: "veloura-grip-ballet",
+    name: "גרבי אחיזה Cloud",
+    price: 55,
+    oldPrice: 65,
+    image: imgBallet.src,
+    color: "ורוד בלט",
+    category: "Grip Socks"
   },
+  {
+    id: "veloura-grip-rose-quartz",
+    name: "גרבי אחיזה Cloud",
+    price: 55,
+    oldPrice: 65,
+    image: imgRoseQuartz.src,
+    color: "רוז קוורץ",
+    category: "Grip Socks"
+  },
+  {
+    id: "veloura-magic-circle",
+    name: "טבעת פילאטיס Magic Circle",
+    price: 120,
+    oldPrice: 150,
+    image: imgRing.src,
+    color: "בז' / עץ מנגו",
+    category: "Equipment"
+  },
+  {
+    id: "veloura-resistance-band",
+    name: "סט גומיות התנגדות מבד",
+    price: 89,
+    oldPrice: 110,
+    image: imgBand.src,
+    color: "סט גווני אדמה",
+    category: "Equipment"
+  }
 ];
 
 const ProductCard = ({ product, index, isVisible }: { product: typeof products[0]; index: number; isVisible: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
   const { addItem } = useCart();
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div
@@ -48,7 +84,7 @@ const ProductCard = ({ product, index, isVisible }: { product: typeof products[0
     >
       <div
         className="relative overflow-hidden rounded-3xl bg-card shadow-card mb-5 aspect-square cursor-pointer"
-        onClick={() => navigate(`/product/${product.id}`)}
+        onClick={() => router.push(`/product/${product.id}`)}
       >
         <img
           src={product.image}
@@ -74,7 +110,7 @@ const ProductCard = ({ product, index, isVisible }: { product: typeof products[0
         </p>
         <h3
           className="text-lg font-serif font-medium text-foreground mb-1 cursor-pointer hover:text-primary transition-colors"
-          onClick={() => navigate(`/product/${product.id}`)}
+          onClick={() => router.push(`/product/${product.id}`)}
         >
           {product.name}
         </h3>

@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
@@ -34,20 +36,13 @@ const AnnouncementBar = () => {
   const pad = (n: number) => n.toString().padStart(2, "0");
 
   return (
-    <div className="bg-luna-deep text-background text-center py-2.5 px-4 relative z-[60]">
-      <div className="container mx-auto flex items-center justify-center gap-4 flex-wrap text-xs font-sans">
-        <span className="font-medium">🚚 משלוח חינם בהזמנות מעל ₪250</span>
-        <span className="text-background/40">|</span>
-        <span className="font-semibold">
-          🔥 מבצע! גרביים ב-₪59.90 / $18.99 — נגמר בעוד{" "}
-          <span className="inline-flex gap-1 font-mono tracking-wider bg-background/10 px-2 py-0.5 rounded-full">
-            {pad(timeLeft.hours)}:{pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}
-          </span>
-        </span>
+    <div className="text-white text-center py-2.5 px-4 relative z-[60]" style={{ backgroundColor: '#333333' }}>
+      <div className="container mx-auto flex items-center justify-center gap-2 text-xs md:text-sm font-sans font-medium">
+        <span>מבצע! גרביים ב-59.90₪ / $18.99 — נגמר בעוד <span className="inline-block px-1.5 py-0.5 bg-white/20 rounded font-mono mx-1">{pad(timeLeft.hours)}:{pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}</span> 🔥 | משלוח חינם בהזמנות מעל ₪250 🚚</span>
       </div>
       <button
         onClick={() => setIsVisible(false)}
-        className="absolute left-3 top-1/2 -translate-y-1/2 text-background/50 hover:text-background transition-colors"
+        className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors"
         aria-label="סגור הודעה"
       >
         <X className="w-4 h-4" />

@@ -1,4 +1,6 @@
-import { useNavigate } from "react-router-dom";
+"use client";
+
+import { useRouter } from "next/navigation";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
@@ -14,7 +16,7 @@ const recommendations = [
 ];
 
 const CartDrawer = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { items, removeItem, addItem, itemCount, isDrawerOpen, setDrawerOpen } = useCart();
   const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
@@ -58,7 +60,7 @@ const CartDrawer = () => {
             <Button
               variant="hero"
               className="w-full py-5 h-auto"
-              onClick={() => { setDrawerOpen(false); navigate("/checkout"); }}
+              onClick={() => { setDrawerOpen(false); router.push("/checkout"); }}
             >
               לתשלום
             </Button>
@@ -73,7 +75,7 @@ const CartDrawer = () => {
               .filter((r) => !items.find((i) => i.id === r.id))
               .map((rec) => (
                 <div key={rec.id} className="flex gap-3 items-center bg-card rounded-2xl p-3">
-                  <img src={rec.image} alt={rec.name} className="w-14 h-14 rounded-xl object-cover" />
+                  <img src={rec.image.src || (rec.image as any)} alt={rec.name} className="w-14 h-14 rounded-xl object-cover" />
                   <div className="flex-1 min-w-0">
                     <p className="font-serif text-sm font-medium truncate">{rec.name}</p>
                     <p className="font-sans text-sm font-semibold">₪{rec.price}</p>
@@ -81,7 +83,7 @@ const CartDrawer = () => {
                   <Button
                     variant="subtle"
                     size="sm"
-                    onClick={() => addItem({ id: rec.id, name: rec.name, price: rec.price, image: rec.image })}
+                    onClick={() => addItem({ id: rec.id, name: rec.name, price: rec.price, image: rec.image.src || (rec.image as any) })}
                   >
                     הוסיפי
                   </Button>

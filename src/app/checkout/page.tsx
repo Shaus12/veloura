@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { useCart } from "@/contexts/CartContext";
 import Navigation from "@/components/Navigation";
 import AnnouncementBar from "@/components/AnnouncementBar";
@@ -35,7 +37,7 @@ const COUPONS: Record<string, { type: "percent" | "fixed"; value: number; label:
 };
 
 const CheckoutPage = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { items, itemCount } = useCart();
   const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
   const formRef = useRef<HTMLFormElement>(null);
@@ -150,7 +152,7 @@ const CheckoutPage = () => {
 
   const processPayment = async (token: string) => {
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://edzyyqaqkkyuhqehtnee.supabase.co";
       const currentItems = itemsRef.current;
       const response = await fetch(
         `${supabaseUrl}/functions/v1/sumit-charge`,
@@ -194,14 +196,7 @@ const CheckoutPage = () => {
             total: totalRef.current,
           }),
         }).catch(() => {});
-        navigate("/thank-you", {
-          state: {
-            orderName: customerNameRef.current,
-            orderEmail: customerEmailRef.current,
-            orderTotal: totalRef.current,
-            orderItems: currentItems,
-          },
-        });
+        router.push("/thank-you");
       } else {
         toast.error(data.error || "שגיאה בתשלום, נסי שוב");
       }
@@ -221,7 +216,7 @@ const CheckoutPage = () => {
           <ShoppingBag className="w-16 h-16 text-muted-foreground mb-4" />
           <h1 className="text-2xl font-serif text-foreground mb-2">הסל שלך ריק</h1>
           <p className="text-muted-foreground font-sans text-sm mb-6">הוסיפי מוצרים לסל כדי להמשיך לתשלום</p>
-          <Button variant="hero" onClick={() => navigate("/")}>
+          <Button variant="hero" onClick={() => router.push("/")}>
             חזרה לחנות
           </Button>
         </div>
@@ -237,7 +232,7 @@ const CheckoutPage = () => {
 
       <div className="container mx-auto max-w-5xl px-6 pt-28 pb-4">
         <nav className="flex items-center gap-1 text-xs font-sans text-muted-foreground">
-          <button onClick={() => navigate("/")} className="hover:text-foreground transition-colors">
+          <button onClick={() => router.push("/")} className="hover:text-foreground transition-colors">
             דף הבית
           </button>
           <ChevronRight className="w-3 h-3 rotate-180" />

@@ -1,3 +1,5 @@
+"use client";
+
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useCart } from "@/contexts/CartContext";
@@ -21,21 +23,21 @@ const Navigation = () => {
     >
       <nav className="container mx-auto flex items-center justify-between px-6 py-5">
         <a href="/" className="flex items-center gap-2">
-          <img src="/veloura-logo.png" alt="VELŌURA" className="h-8" />
+          <span className="text-2xl font-serif font-bold tracking-widest text-luna-deep">VELŌURA</span>
         </a>
 
         <div className="hidden md:flex items-center gap-10">
           <a href="#collection" className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300">
-            הקולקציה
+            Slow Girl Era
           </a>
-          <a href="#technology" className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300">
-            טכנולוגיה
+          <a href="#difference" className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300">
+            למה VELOURA
           </a>
           <a href="#stories" className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300">
-            סיפורים
+            הקהילה
           </a>
           <a href="#extras" className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-foreground/70 hover:text-foreground transition-colors duration-300">
-            עוד מוצרים
+            ציוד משלים
           </a>
         </div>
 
@@ -65,10 +67,10 @@ const Navigation = () => {
       {mobileOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border px-6 py-6 space-y-4">
           {[
-            { href: "#collection", label: "הקולקציה" },
-            { href: "#technology", label: "טכנולוגיה" },
-            { href: "#stories", label: "סיפורים" },
-            { href: "#extras", label: "עוד מוצרים" },
+            { href: "#collection", label: "Slow Girl Era" },
+            { href: "#difference", label: "למה VELOURA" },
+            { href: "#stories", label: "קהילה" },
+            { href: "#extras", label: "ציוד משלים" },
           ].map((link) => (
             <a
               key={link.href}

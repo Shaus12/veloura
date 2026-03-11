@@ -11,7 +11,7 @@ const extras = [
     id: "rec-1",
     name: "טבעת פילאטיס פרימיום",
     price: 89,
-    description: "טבעת התנגדות מקצועית לחיטוב וחיזוק",
+    description: "לחיזוק שקט שמורגש למחרת",
     image: productPilatesRing,
   },
   {

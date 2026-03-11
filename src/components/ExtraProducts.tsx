@@ -43,7 +43,7 @@ const ExtraProducts = () => {
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
-            עוד מהחנות
+            להשלמת האימון
           </p>
           <h2
             className={`text-4xl md:text-5xl font-serif font-normal text-foreground ${
@@ -51,7 +51,7 @@ const ExtraProducts = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            אביזרי פילאטיס
+            עוד קצת תנועה
           </h2>
         </div>
 

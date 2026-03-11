@@ -18,7 +18,7 @@ const extras = [
     id: "rec-2",
     name: "מגבת סטודיו מיקרופייבר",
     price: 49,
-    description: "מגבת רכה וסופגת במיוחד לאימון",
+    description: "כי שיעור טוב דורש מגבת טובה",
     image: productTowel,
   },
   {

@@ -4,18 +4,18 @@ import { Shield, Sparkles, Heart } from "lucide-react";
 const features = [
   {
     icon: Shield,
-    title: "אחיזה מדויקת",
-    description: "דפוסי סיליקון מהנדסים מספקים יציבות חסרת תחרות על הרפורמר, כך שתוכלי להתמקד בטכניקה — לא בהחלקה.",
+    title: "יציבות שמשחררת",
+    description: "את לא צריכה לחשוב על הרגליים. סיליקון מהנדס על הרפורמר — ואת מתמקדת בנשימה, בתנועה, בגוף.",
   },
   {
     icon: Sparkles,
-    title: "היגיינה מחודשת",
-    description: "השכבה האישית שלך. רשת נושמת ואנטי-בקטריאלית שומרת על רעננות מהבר לברנץ׳.",
+    title: "נקיות בלי פשרות",
+    description: "השכבה שלך. רשת נושמת ואנטי-בקטריאלית — מהקלאס הראשון של הבוקר ועד הקפה אחרי.",
   },
   {
     icon: Heart,
-    title: "עיצוב אסתטי",
-    description: "סטייל מהסטודיו לרחוב שנראה טוב כמו שהוא מתפקד. כי הגרביים שלך צריכות להתאים לאנרגיה.",
+    title: "נראות כמו שמרגישות",
+    description: "גרביים שלא מתביישים בהן. מהסטודיו לרחוב, כי הסטייל שלך לא נעצר בדלת.",
   },
 ];
 
@@ -31,7 +31,7 @@ const DifferenceSection = () => {
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
-            למה VELŌURA
+            למה דווקא אנחנו
           </p>
           <h2
             className={`text-4xl md:text-5xl font-serif font-normal text-foreground ${
@@ -39,7 +39,7 @@ const DifferenceSection = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            ההבדל של VELŌURA
+            לא עוד גרב. תנועה.
           </h2>
         </div>
 

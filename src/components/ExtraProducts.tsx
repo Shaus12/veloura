@@ -11,21 +11,21 @@ const extras = [
     id: "rec-1",
     name: "טבעת פילאטיס פרימיום",
     price: 89,
-    description: "טבעת התנגדות מקצועית לחיטוב וחיזוק",
+    description: "לחיזוק שקט שמורגש למחרת",
     image: productPilatesRing,
   },
   {
     id: "rec-2",
     name: "מגבת סטודיו מיקרופייבר",
     price: 49,
-    description: "מגבת רכה וסופגת במיוחד לאימון",
+    description: "כי שיעור טוב דורש מגבת טובה",
     image: productTowel,
   },
   {
     id: "rec-3",
     name: "גומיית התנגדות VELŌURA",
     price: 39,
-    description: "גומיית לטקס איכותית לאימון בבית ובסטודיו",
+    description: "לימים שאת מתאמנת בסלון — וזה בסדר גמור",
     image: productResistanceBand,
   },
 ];
@@ -43,7 +43,7 @@ const ExtraProducts = () => {
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
-            עוד מהחנות
+            להשלמת האימון
           </p>
           <h2
             className={`text-4xl md:text-5xl font-serif font-normal text-foreground ${
@@ -51,7 +51,7 @@ const ExtraProducts = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            אביזרי פילאטיס
+            עוד קצת תנועה
           </h2>
         </div>
 

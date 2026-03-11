@@ -24,7 +24,7 @@ const Footer = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            בואי לתנועה
+            הצטרפי למעגל הפנימי
           </h2>
           <p
             className={`text-sm font-sans font-light text-background/60 mb-8 ${
@@ -32,7 +32,7 @@ const Footer = () => {
             }`}
             style={{ animationDelay: "0.2s" }}
           >
-            קולקציות חדשות, טיפים מהסטודיו והצעות — ישר אלייך. בלי ספאם, מבטיחות.
+            גישה מוקדמת לקולקציות חדשות, טיפים לסטודיו והצעות בלעדיות.
           </p>
 
           <div

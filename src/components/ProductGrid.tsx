@@ -119,7 +119,7 @@ const ProductGrid = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            סדרת גרבי האחיזה
+            בחרי את הסטייל שלך
           </h2>
         </div>
 

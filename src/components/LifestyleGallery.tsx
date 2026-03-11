@@ -23,7 +23,7 @@ const LifestyleGallery = () => {
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
-            #VelouraLifestyle
+            #VelouraMovement
           </p>
           <h2
             className={`text-4xl md:text-5xl font-serif font-normal text-foreground ${
@@ -31,7 +31,7 @@ const LifestyleGallery = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            VELŌURA בפעולה
+            מהסטודיו לחיים
           </h2>
         </div>
 

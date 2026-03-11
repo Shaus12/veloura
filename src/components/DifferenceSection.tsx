@@ -31,7 +31,7 @@ const DifferenceSection = () => {
               isVisible ? "animate-fade-up" : "opacity-0"
             }`}
           >
-            למה VELŌURA
+            למה דווקא אנחנו
           </p>
           <h2
             className={`text-4xl md:text-5xl font-serif font-normal text-foreground ${
@@ -39,7 +39,7 @@ const DifferenceSection = () => {
             }`}
             style={{ animationDelay: "0.1s" }}
           >
-            ההבדל של VELŌURA
+            לא עוד גרב. תנועה.
           </h2>
         </div>
 

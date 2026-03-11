@@ -25,7 +25,7 @@ const extras = [
     id: "rec-3",
     name: "גומיית התנגדות VELŌURA",
     price: 39,
-    description: "גומיית לטקס איכותית לאימון בבית ובסטודיו",
+    description: "לימים שאת מתאמנת בסלון — וזה בסדר גמור",
     image: productResistanceBand,
   },
 ];

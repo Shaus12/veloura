@@ -65,7 +65,7 @@ const TrustSection = () => {
                 isVisible2 ? "animate-fade-up" : "opacity-0"
               }`}
             >
-              סיפורי חברות
+              מהקהילה
             </p>
             <h2
               className={`text-4xl md:text-5xl font-serif font-normal text-foreground ${
@@ -73,7 +73,7 @@ const TrustSection = () => {
               }`}
               style={{ animationDelay: "0.1s" }}
             >
-              אהובות על הקהילה
+              הן כבר בפנים
             </h2>
           </div>
 

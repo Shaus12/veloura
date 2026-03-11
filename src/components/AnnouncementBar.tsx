@@ -36,7 +36,7 @@ const AnnouncementBar = () => {
   return (
     <div className="bg-luna-deep text-background text-center py-2.5 px-4 relative z-[60]">
       <div className="container mx-auto flex items-center justify-center gap-4 flex-wrap text-xs font-sans">
-        <span className="font-medium">🚚 משלוח חינם בהזמנות מעל ₪250</span>
+        <span className="font-medium">🚚 משלוח חינם מעל ₪250 — כי את שווה את זה</span>
         <span className="text-background/40">|</span>
         <span className="font-semibold">
           🔥 מבצע! גרביים ב-₪59.90 / $18.99 — נגמר בעוד{" "}

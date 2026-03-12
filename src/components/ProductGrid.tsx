@@ -6,66 +6,59 @@ import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
 import { useRouter } from "next/navigation";
 
-import imgClassic from "@/assets/product-classic.jpg";
-import imgChampagne from "@/assets/product-champagne.jpg";
-import imgBallet from "@/assets/product-ballet.jpg";
-import imgRoseQuartz from "@/assets/product-rose-quartz.jpg";
-import imgRing from "@/assets/product-pilates-ring.jpg";
-import imgBand from "@/assets/product-resistance-band.jpg";
-
 const products = [
   {
-    id: "veloura-grip-classic",
-    name: "גרבי אחיזה Cloud",
-    price: 55,
-    oldPrice: 65,
-    image: imgClassic.src,
-    color: "שחור קלאסי",
+    id: "alibaba-1",
+    name: "גרבי כושר ויוגה",
+    price: 45,
+    oldPrice: 55,
+    image: "/products/product_1_logo.jpg",
+    color: "סגול",
     category: "Grip Socks"
   },
   {
-    id: "veloura-grip-champagne",
-    name: "גרבי אחיזה Cloud",
-    price: 55,
-    oldPrice: 65,
-    image: imgChampagne.src,
-    color: "שמפניה עדינה",
-    category: "Grip Socks"
-  },
-  {
-    id: "veloura-grip-ballet",
-    name: "גרבי אחיזה Cloud",
-    price: 55,
-    oldPrice: 65,
-    image: imgBallet.src,
-    color: "ורוד בלט",
-    category: "Grip Socks"
-  },
-  {
-    id: "veloura-grip-rose-quartz",
-    name: "גרבי אחיזה Cloud",
-    price: 55,
-    oldPrice: 65,
-    image: imgRoseQuartz.src,
-    color: "רוז קוורץ",
-    category: "Grip Socks"
-  },
-  {
-    id: "veloura-magic-circle",
-    name: "טבעת פילאטיס Magic Circle",
+    id: "alibaba-2",
+    name: "ערכת פילאטיס ויוגה",
     price: 120,
     oldPrice: 150,
-    image: imgRing.src,
-    color: "בז' / עץ מנגו",
+    image: "/products/product_2_logo.jpg",
+    color: "מוצרים לפילאטיס",
     category: "Equipment"
   },
   {
-    id: "veloura-resistance-band",
-    name: "סט גומיות התנגדות מבד",
-    price: 89,
-    oldPrice: 110,
-    image: imgBand.src,
-    color: "סט גווני אדמה",
+    id: "alibaba-3",
+    name: "משקולות מסיליקון",
+    price: 85,
+    oldPrice: 100,
+    image: "/products/product_3_logo.jpg",
+    color: "משקולות",
+    category: "Equipment"
+  },
+  {
+    id: "alibaba-4",
+    name: "ערכת פילאטיס אקו",
+    price: 110,
+    oldPrice: 140,
+    image: "/products/product_4_logo.jpg",
+    color: "ורוד",
+    category: "Equipment"
+  },
+  {
+    id: "alibaba-5",
+    name: "גומיות התנגדות מבד",
+    price: 65,
+    oldPrice: 80,
+    image: "/products/product_5_logo.jpg",
+    color: "מנומר",
+    category: "Equipment"
+  },
+  {
+    id: "alibaba-6",
+    name: "רצועות התנגדות מלטקס",
+    price: 45,
+    oldPrice: 60,
+    image: "/products/product_6_logo.jpg",
+    color: "ורוד בייבי",
     category: "Equipment"
   }
 ];

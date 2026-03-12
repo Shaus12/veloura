@@ -6,24 +6,24 @@ import { ChevronRight } from "lucide-react";
 
 const categories = [
   {
+    id: "grip-socks",
+    name: "גרבי אחיזה לפילאטיס",
+    image: "/products/product_1_logo.jpg",
+  },
+  {
     id: "equipment",
-    name: "Equipment",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80",
+    name: "ציוד ואביזרים",
+    image: "/products/product_4_logo.jpg",
   },
   {
-    id: "bodysuits",
-    name: "Bodysuits",
-    image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80",
+    id: "apparel",
+    name: "ביגוד פילאטיס",
+    image: "/products/product_8_logo.jpg",
   },
   {
-    id: "leggings",
-    name: "Leggings",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80",
-  },
-  {
-    id: "tops",
-    name: "Tops",
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80",
+    id: "accessories",
+    name: "אביזרים נלווים",
+    image: "/products/product_3_logo.jpg",
   }
 ];
 

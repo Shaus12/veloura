@@ -6,25 +6,25 @@ import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
 const extras = [
   {
-    id: "luna-towel",
-    name: "מגבת מיקורפייבר ״Clean Girl״",
-    price: 65,
-    description: "ייבוש מהיר, סופר רכה, שומרת עלייך ועל המזרן לאורך כל השיעור",
-    image: "https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?auto=format&fit=crop&q=80",
+    id: "alibaba-7",
+    name: "בקבוק מים נירוסטה 500 מ״ל",
+    price: 85,
+    description: "בקבוק מבודד לשמירת קור למשך 24 שעות",
+    image: "/products/product_7_logo.jpg",
   },
   {
-    id: "luna-band",
-    name: "גומיות התנגדות (Pistachio Edition)",
-    price: 35,
-    description: "חובה בתיק - התנגדות מושלמת לחימום ולעבודה בבית",
-    image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?auto=format&fit=crop&q=80",
+    id: "alibaba-8",
+    name: "סט ספורט ויוגה (2 חלקים)",
+    price: 180,
+    description: "סט ספורט נוח ומחמיא לאימוני פילאטיס ויוגה",
+    image: "/products/product_8_logo.jpg",
   },
   {
-    id: "luna-bottle",
-    name: "בקבוק נירוסטה אסתטי 1 ליטר",
-    price: 110,
-    description: "להישאר בהידרציה לאורך כל היום, שומר על קור ל-24 שעות",
-    image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80",
+    id: "alibaba-9",
+    name: "סט בגדי ספורט Seamless",
+    price: 195,
+    description: "סט איכותי מבד נושם, מושלם לכל אימון",
+    image: "/products/product_9_logo.jpg",
   },
 ];
 

@@ -113,7 +113,7 @@ const HorizontalProductList = () => {
   };
 
   return (
-    <section ref={ref} className="py-16 md:py-24 px-4 md:px-8 bg-background">
+    <section id="collection" ref={ref} className="py-16 md:py-24 px-4 md:px-8 bg-background">
       <div className="container mx-auto max-w-[1200px]">
         {/* Product Grid */}
         <div 

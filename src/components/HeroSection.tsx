@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react";
 import heroImage from "@/assets/veloura-hero.png";
 import accessoriesHero from "@/assets/veloura-accessories-hero.png";
+import hero3 from "@/assets/veloura-hero-3.png";
 
 const heroImages = [
   { src: typeof heroImage === "string" ? heroImage : (heroImage as any).src, alt: "VELOURA Movement Studio" },
   { src: typeof accessoriesHero === "string" ? accessoriesHero : (accessoriesHero as any).src, alt: "VELOURA Pilates Accessories Collection" },
+  { src: typeof hero3 === "string" ? hero3 : (hero3 as any).src, alt: "VELOURA Collection" },
 ];
 
 const HeroSection = () => {
@@ -31,7 +33,7 @@ const HeroSection = () => {
           <img
             src={img.src}
             alt={img.alt}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-bottom"
           />
         </div>
       ))}

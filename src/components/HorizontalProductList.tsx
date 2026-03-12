@@ -113,26 +113,21 @@ const HorizontalProductList = () => {
   };
 
   return (
-    <section ref={ref} className="py-20 md:py-28 px-4 md:px-8 bg-background">
-      <div className="container mx-auto max-w-[1400px]">
-        {/* Horizontal Drag Area */}
+    <section ref={ref} className="py-16 md:py-24 px-4 md:px-8 bg-background">
+      <div className="container mx-auto max-w-[1200px]">
+        {/* Product Grid */}
         <div 
-          ref={scrollRef}
-          className={`flex overflow-x-auto gap-4 md:gap-6 pb-8 snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing ${isVisible ? "animate-fade-up" : "opacity-0"}`}
-          onMouseDown={onMouseDown}
-          onMouseLeave={onMouseLeave}
-          onMouseUp={onMouseUp}
-          onMouseMove={onMouseMove}
+          className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 ${isVisible ? "animate-fade-up" : "opacity-0"}`}
         >
           {products.map((product, index) => (
             <div 
               key={product.id} 
-              className="min-w-[40vw] sm:min-w-[180px] md:min-w-[200px] lg:min-w-[220px] snap-start flex-shrink-0 group"
+              className="group"
               style={{ animationDelay: `${0.1 + index * 0.1}s` }}
             >
               {/* Image Container */}
               <div 
-                className="relative aspect-square overflow-hidden rounded-2xl bg-secondary mb-3 cursor-pointer"
+                className="relative aspect-square overflow-hidden rounded-xl bg-secondary mb-2 cursor-pointer"
                 onClick={() => router.push(`/product/${product.id}`)}
               >
                 <img 
@@ -142,45 +137,18 @@ const HorizontalProductList = () => {
                   loading="lazy"
                   draggable={false}
                 />
-                
-                {/* Floating Interactive Button (Like BetterMe) */}
-                <button 
-                  className="absolute bottom-4 left-4 w-12 h-12 bg-background/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-soft hover:bg-foreground hover:text-background"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    // Add logic here if needed (e.g. quick add)
-                    router.push(`/product/${product.id}`);
-                  }}
-                  aria-label="View Product"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Color Swatches */}
-              <div className="flex items-center gap-2 mb-3">
-                {product.colors.map((color, i) => (
-                  <div 
-                    key={i} 
-                    className={`w-4 h-4 rounded-full cursor-pointer hover:scale-110 transition-transform ${i === 0 ? 'ring-1 ring-offset-2 ring-foreground' : 'border border-border/50'}`}
-                    style={{ backgroundColor: color }}
-                    title={`Color option ${i + 1}`}
-                  />
-                ))}
               </div>
 
               {/* Product Info */}
-              <div className="flex justify-between items-start">
-                <div 
-                  className="cursor-pointer group-hover:opacity-70 transition-opacity pr-4"
-                  onClick={() => router.push(`/product/${product.id}`)}
-                >
-                  <h3 className="font-sans font-semibold text-foreground leading-tight text-sm md:text-base">{product.name}</h3>
-                  <p className="font-sans text-xs text-muted-foreground mt-1 capitalize">{product.category}</p>
-                </div>
-                <div className="text-left font-sans font-medium text-foreground text-sm md:text-base shrink-0">
+              <div 
+                className="cursor-pointer group-hover:opacity-70 transition-opacity"
+                onClick={() => router.push(`/product/${product.id}`)}
+              >
+                <h3 className="font-sans font-semibold text-foreground leading-tight text-xs md:text-sm">{product.name}</h3>
+                <p className="font-sans text-[10px] md:text-xs text-muted-foreground mt-0.5 capitalize">{product.category}</p>
+                <p className="font-sans font-medium text-foreground text-xs md:text-sm mt-1">
                   ₪{product.price.toFixed(2)}
-                </div>
+                </p>
               </div>
             </div>
           ))}
@@ -191,3 +159,4 @@ const HorizontalProductList = () => {
 };
 
 export default HorizontalProductList;
+

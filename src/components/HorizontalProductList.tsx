@@ -127,7 +127,7 @@ const HorizontalProductList = () => {
           {products.map((product, index) => (
             <div 
               key={product.id} 
-              className="min-w-[75vw] sm:min-w-[280px] md:min-w-[320px] lg:min-w-[360px] snap-start flex-shrink-0 group"
+              className="min-w-[55vw] sm:min-w-[220px] md:min-w-[240px] lg:min-w-[260px] snap-start flex-shrink-0 group"
               style={{ animationDelay: `${0.1 + index * 0.1}s` }}
             >
               {/* Image Container */}

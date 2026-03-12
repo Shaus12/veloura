@@ -42,7 +42,7 @@ const CategorySection = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {categories.map((category, index) => (
             <Link 
-              href={`#${category.id}`} 
+              href={`/category/${category.id}`} 
               key={category.id}
               className={`group flex flex-col items-center gap-4 ${isVisible ? "animate-fade-up" : "opacity-0"}`}
               style={{ animationDelay: `${0.1 + index * 0.1}s` }}

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useState } from "react";
+import Link from "next/link";
 
 const Footer = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
@@ -64,15 +65,15 @@ const Footer = () => {
           <span className="text-serif text-2xl font-bold tracking-widest text-background/80">VELŌURA</span>
 
           <div className="flex items-center gap-8">
-            <a href="#" className="text-xs font-sans uppercase tracking-[0.15em] text-background/50 hover:text-background/80 transition-colors">
+            <Link href="/privacy" className="text-xs font-sans uppercase tracking-[0.15em] text-background/50 hover:text-background/80 transition-colors">
               פרטיות
-            </a>
-            <a href="#" className="text-xs font-sans uppercase tracking-[0.15em] text-background/50 hover:text-background/80 transition-colors">
+            </Link>
+            <Link href="/terms" className="text-xs font-sans uppercase tracking-[0.15em] text-background/50 hover:text-background/80 transition-colors">
               תנאי שימוש
-            </a>
-            <a href="#" className="text-xs font-sans uppercase tracking-[0.15em] text-background/50 hover:text-background/80 transition-colors">
+            </Link>
+            <Link href="/contact" className="text-xs font-sans uppercase tracking-[0.15em] text-background/50 hover:text-background/80 transition-colors">
               צור קשר
-            </a>
+            </Link>
           </div>
 
           <p className="text-xs font-sans text-background/30">

@@ -38,7 +38,7 @@ const AnnouncementBar = () => {
   return (
     <div className="text-white text-center py-2.5 px-4 relative z-[60]" style={{ backgroundColor: '#333333' }}>
       <div className="container mx-auto flex items-center justify-center gap-2 text-xs md:text-sm font-sans font-medium">
-        <span>מבצע! גרביים ב-59.90₪ / $18.99 — נגמר בעוד <span className="inline-block px-1.5 py-0.5 bg-white/20 rounded font-mono mx-1">{pad(timeLeft.hours)}:{pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}</span> 🔥 | משלוח חינם בהזמנות מעל ₪250 🚚</span>
+        <span>🔥 מבצע על כל החנות! הנחות מיוחדות לזמן מוגבל — נגמר בעוד <span className="inline-block px-1.5 py-0.5 bg-white/20 rounded font-mono mx-1">{pad(timeLeft.hours)}:{pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}</span> | משלוח חינם בהזמנות מעל ₪250 🚚</span>
       </div>
       <button
         onClick={() => setIsVisible(false)}

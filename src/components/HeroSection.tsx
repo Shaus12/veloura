@@ -33,10 +33,13 @@ const HeroSection = () => {
           <img
             src={img.src}
             alt={img.alt}
-            className="w-full h-full object-cover object-bottom"
+            className="w-full h-full object-cover object-center"
           />
         </div>
       ))}
+
+      {/* Top gradient for nav readability */}
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/50 to-transparent z-[1]" />
 
       {/* Slide indicators */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">

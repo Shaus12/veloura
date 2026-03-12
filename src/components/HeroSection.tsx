@@ -22,7 +22,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden h-[80vh] md:h-screen flex items-center justify-center">
+    <section className="relative w-full overflow-hidden h-[60vh] md:h-screen flex items-center justify-center">
       {heroImages.map((img, index) => (
         <div
           key={index}
@@ -33,7 +33,7 @@ const HeroSection = () => {
           <img
             src={img.src}
             alt={img.alt}
-            className="w-full h-full object-cover object-top md:object-[center_35%]"
+            className="w-full h-full object-cover object-[center_top] md:object-[center_35%]"
           />
         </div>
       ))}

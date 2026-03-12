@@ -41,21 +41,7 @@ const HeroSection = () => {
       {/* Top gradient for nav readability */}
       <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/50 to-transparent z-[1]" />
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-        {heroImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex
-                ? "bg-white w-6"
-                : "bg-white/50 hover:bg-white/70"
-            }`}
-            aria-label={`Slide ${index + 1}`}
-          />
-        ))}
-      </div>
+
     </section>
   );
 };

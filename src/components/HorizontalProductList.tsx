@@ -127,12 +127,12 @@ const HorizontalProductList = () => {
           {products.map((product, index) => (
             <div 
               key={product.id} 
-              className="min-w-[55vw] sm:min-w-[220px] md:min-w-[240px] lg:min-w-[260px] snap-start flex-shrink-0 group"
+              className="min-w-[40vw] sm:min-w-[180px] md:min-w-[200px] lg:min-w-[220px] snap-start flex-shrink-0 group"
               style={{ animationDelay: `${0.1 + index * 0.1}s` }}
             >
               {/* Image Container */}
               <div 
-                className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-secondary mb-4 cursor-pointer"
+                className="relative aspect-square overflow-hidden rounded-2xl bg-secondary mb-3 cursor-pointer"
                 onClick={() => router.push(`/product/${product.id}`)}
               >
                 <img 

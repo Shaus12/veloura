@@ -4,33 +4,39 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
+import { WaitlistDialog } from "@/components/WaitlistDialog";
+
+import imgWaterBottle from "@/assets/product_water_bottle_1773592499625.png";
+import imgYogaSet from "@/assets/product_yoga_set_1773592518011.png";
 const extras = [
   {
     id: "alibaba-7",
     name: "בקבוק מים נירוסטה 500 מ״ל",
     price: 85,
     description: "בקבוק מבודד לשמירת קור למשך 24 שעות",
-    image: "/products/product_7_logo.jpg",
+    image: imgWaterBottle.src,
   },
   {
     id: "alibaba-8",
     name: "סט ספורט ויוגה (2 חלקים)",
     price: 180,
     description: "סט ספורט נוח ומחמיא לאימוני פילאטיס ויוגה",
-    image: "/products/product_8_logo.jpg",
+    image: imgYogaSet.src,
   },
   {
     id: "alibaba-9",
     name: "סט בגדי ספורט Seamless",
     price: 195,
     description: "סט איכותי מבד נושם, מושלם לכל אימון",
-    image: "/products/product_9_logo.jpg",
+    image: "/products/product_9_logo.jpg", // Kept original for the third image due to limit
   },
 ];
 
 const ExtraProducts = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
   const { addItem } = useCart();
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
   return (
     <section id="extras" ref={ref} className="py-28 md:py-36 px-6 bg-secondary/30">
@@ -88,9 +94,12 @@ const ExtraProducts = () => {
                     variant="subtle"
                     size="sm"
                     className="px-6"
-                    onClick={() => addItem({ id: product.id, name: product.name, price: product.price, image: product.image })}
+                    onClick={() => {
+                      setSelectedProduct(product);
+                      setIsWaitlistOpen(true);
+                    }}
                   >
-                    הוסיפי לסל
+                    אזל מהמלאי - הצטרפי להמתנה
                   </Button>
                 </div>
               </div>
@@ -98,6 +107,13 @@ const ExtraProducts = () => {
           })}
         </div>
       </div>
+
+      <WaitlistDialog 
+        isOpen={isWaitlistOpen}
+        onOpenChange={setIsWaitlistOpen}
+        productId={selectedProduct?.id || ""}
+        productName={selectedProduct?.name || ""}
+      />
     </section>
   );
 };

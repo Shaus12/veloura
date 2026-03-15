@@ -2,11 +2,16 @@
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
+import imgCommunity1 from "@/assets/community_lifestyle_1_1773589068312.png";
+import imgCommunity2 from "@/assets/community_lifestyle_2_1773589096098.png";
+import imgCommunity3 from "@/assets/community_lifestyle_3_1773589120883.png";
+import imgCommunity4 from "@/assets/community_lifestyle_4_1773589146402.png";
+
 const images = [
-  { src: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80", alt: "Pilates Reformer Class" },
-  { src: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80", alt: "Yoga and Pilates Space" },
-  { src: "https://images.unsplash.com/photo-1599901860904-17e089299dc4?auto=format&fit=crop&q=80", alt: "Matcha Latte" },
-  { src: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&q=80", alt: "Stretching Session" },
+  { src: imgCommunity1.src, alt: "Pilates Reformer Class" },
+  { src: imgCommunity2.src, alt: "Yoga and Pilates Space" },
+  { src: imgCommunity3.src, alt: "Matcha Latte" },
+  { src: imgCommunity4.src, alt: "Stretching Session" },
 ];
 
 const LifestyleGallery = () => {

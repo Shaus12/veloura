@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import heroImage from "@/assets/veloura-hero.png";
-import accessoriesHero from "@/assets/veloura-accessories-hero.png";
+import accessoriesHero from "@/assets/hero_accessories_1773589046019.png";
 import hero3 from "@/assets/veloura-hero-3.png";
 
 const heroImages = [
@@ -22,7 +22,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden h-[60vh] md:h-screen flex items-center justify-center">
+    <section className="relative w-full overflow-hidden h-[45vh] md:h-[65vh] flex items-center justify-center">
       {heroImages.map((img, index) => (
         <div
           key={index}

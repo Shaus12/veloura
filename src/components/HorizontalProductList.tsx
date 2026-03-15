@@ -7,12 +7,12 @@ import { MessageCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 // Local imports to match the previous assets setup
-import imgClassic from "@/assets/product-classic.jpg";
-import imgChampagne from "@/assets/product-champagne.jpg";
-import imgBallet from "@/assets/product-ballet.jpg";
-import imgRoseQuartz from "@/assets/product-rose-quartz.jpg";
-import imgRing from "@/assets/product-pilates-ring.jpg";
-import imgBand from "@/assets/product-resistance-band.jpg";
+import imgClassic from "@/assets/product_classic_1773579003841.png";
+import imgChampagne from "@/assets/product_champagne_1773579021607.png";
+import imgBallet from "@/assets/product_ballet_1773579037443.png";
+import imgRoseQuartz from "@/assets/product_rose_quartz_1773579053445.png";
+import imgRing from "@/assets/product_pilates_ring_1773579072379.png";
+import imgBand from "@/assets/product_resistance_band_1773579091254.png";
 
 interface Product {
   id: string;
@@ -27,51 +27,51 @@ interface Product {
 const products: Product[] = [
   {
     id: "veloura-grip-classic",
-    name: "Ultrasculpt High Waisted Leggings", // Placeholder aesthetic name
-    price: 155,
+    name: "גרבי אחיזה Cloud - שחור", 
+    price: 55,
     image: imgClassic.src,
     colors: ["#3b3b3b", "#e0d0c1", "#5a453f", "#2b2b2b", "#8b7e74"],
-    category: "Leggings"
+    category: "Grip Socks"
   },
   {
     id: "veloura-grip-champagne",
-    name: "Soft Everyday Long Sleeve Top",
-    price: 155,
+    name: "גרבי אחיזה Cloud - שמפניה",
+    price: 55,
     image: imgChampagne.src,
     colors: ["#f5f5f5", "#8c6b5d", "#eecbc0", "#2b2b2b"],
-    category: "Tops"
-  },
-  {
-    id: "veloura-magic-circle",
-    name: "Track Shorts",
-    price: 155,
-    image: imgRing.src, // Re-using local image for layout structure
-    colors: ["#eaddd5", "#9e9a9a", "#a2ab9a", "#2b2b2b", "#4a4a4a"],
-    category: "Shorts"
-  },
-  {
-    id: "veloura-resistance-band",
-    name: "Ultralight Athletic Jacket",
-    price: 281,
-    image: imgBand.src, // Re-using local image
-    colors: ["#eaddd5", "#a2ab9a", "#8b7e74", "#2b2b2b", "#3b3b3b"],
-    category: "Jackets"
+    category: "Grip Socks"
   },
   {
     id: "veloura-grip-ballet",
-    name: "Ballet Studio Socks",
+    name: "גרבי אחיזה Cloud - ורוד בלט",
     price: 55,
     image: imgBallet.src,
     colors: ["#eecbc0", "#f5f5f5"],
-    category: "Socks"
+    category: "Grip Socks"
   },
   {
     id: "veloura-grip-rose-quartz",
-    name: "Rose Quartz Grip Socks",
+    name: "גרבי אחיזה Cloud - רוז קוורץ",
     price: 55,
     image: imgRoseQuartz.src,
     colors: ["#eecbc0"],
-    category: "Socks"
+    category: "Grip Socks"
+  },
+  {
+    id: "veloura-magic-circle",
+    name: "טבעת פילאטיס Magic Circle",
+    price: 120,
+    image: imgRing.src, 
+    colors: ["#eaddd5", "#9e9a9a", "#a2ab9a", "#2b2b2b", "#4a4a4a"],
+    category: "Equipment"
+  },
+  {
+    id: "veloura-resistance-band",
+    name: "סט גומיות התנגדות מבד",
+    price: 89,
+    image: imgBand.src, 
+    colors: ["#eaddd5", "#a2ab9a", "#8b7e74", "#2b2b2b", "#3b3b3b"],
+    category: "Equipment"
   }
 ];
 

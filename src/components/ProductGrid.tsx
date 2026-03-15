@@ -6,66 +6,72 @@ import { useState } from "react";
 import { useCart } from "@/contexts/CartContext";
 import { useRouter } from "next/navigation";
 
+import imgClassic from "@/assets/product_classic_1773579003841.png";
+import imgChampagne from "@/assets/product_champagne_1773579021607.png";
+import imgBallet from "@/assets/product_ballet_1773579037443.png";
+import imgRoseQuartz from "@/assets/product_rose_quartz_1773579053445.png";
+import imgRing from "@/assets/product_pilates_ring_1773579072379.png";
+import imgBand from "@/assets/product_resistance_band_1773579091254.png";
+
 const products = [
   {
-    id: "alibaba-1",
-    name: "גרבי כושר ויוגה",
-    price: 45,
-    oldPrice: 55,
-    image: "/products/product_1_logo.jpg",
-    color: "סגול",
+    id: "veloura-grip-classic",
+    name: "גרבי אחיזה Cloud - שחור",
+    price: 55,
+    oldPrice: 65,
+    image: imgClassic.src,
+    color: "שחור",
     category: "Grip Socks"
   },
   {
-    id: "alibaba-2",
-    name: "ערכת פילאטיס ויוגה",
+    id: "veloura-grip-champagne",
+    name: "גרבי אחיזה Cloud - שמפניה",
+    price: 55,
+    oldPrice: 65,
+    image: imgChampagne.src,
+    color: "שמפניה",
+    category: "Grip Socks"
+  },
+  {
+    id: "veloura-grip-ballet",
+    name: "גרבי אחיזה Cloud - ורוד בלט",
+    price: 55,
+    oldPrice: 65,
+    image: imgBallet.src,
+    color: "ורוד",
+    category: "Grip Socks"
+  },
+  {
+    id: "veloura-grip-rose-quartz",
+    name: "גרבי אחיזה Cloud - רוז קוורץ",
+    price: 55,
+    oldPrice: 65,
+    image: imgRoseQuartz.src,
+    color: "רוז",
+    category: "Grip Socks"
+  },
+  {
+    id: "veloura-magic-circle",
+    name: "טבעת פילאטיס Magic Circle",
     price: 120,
     oldPrice: 150,
-    image: "/products/product_2_logo.jpg",
-    color: "מוצרים לפילאטיס",
+    image: imgRing.src,
+    color: "בז'",
     category: "Equipment"
   },
   {
-    id: "alibaba-3",
-    name: "משקולות מסיליקון",
-    price: 85,
-    oldPrice: 100,
-    image: "/products/product_3_logo.jpg",
-    color: "משקולות",
-    category: "Equipment"
-  },
-  {
-    id: "alibaba-4",
-    name: "ערכת פילאטיס אקו",
-    price: 110,
-    oldPrice: 140,
-    image: "/products/product_4_logo.jpg",
-    color: "ורוד",
-    category: "Equipment"
-  },
-  {
-    id: "alibaba-5",
-    name: "גומיות התנגדות מבד",
-    price: 65,
-    oldPrice: 80,
-    image: "/products/product_5_logo.jpg",
-    color: "מנומר",
-    category: "Equipment"
-  },
-  {
-    id: "alibaba-6",
-    name: "רצועות התנגדות מלטקס",
-    price: 45,
-    oldPrice: 60,
-    image: "/products/product_6_logo.jpg",
-    color: "ורוד בייבי",
+    id: "veloura-resistance-band",
+    name: "סט גומיות התנגדות מבד",
+    price: 89,
+    oldPrice: 110,
+    image: imgBand.src,
+    color: "גווני אדמה",
     category: "Equipment"
   }
 ];
 
 const ProductCard = ({ product, index, isVisible }: { product: typeof products[0]; index: number; isVisible: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { addItem } = useCart();
   const router = useRouter();
 
   return (
@@ -92,36 +98,25 @@ const ProductCard = ({ product, index, isVisible }: { product: typeof products[0
             isHovered ? "opacity-100" : "opacity-0"
           }`}
         />
-        <span className="absolute top-4 right-4 bg-destructive text-destructive-foreground text-[10px] font-sans font-bold uppercase px-3 py-1 rounded-full">
-          מבצע
+        <span className="absolute top-4 right-4 bg-muted text-muted-foreground text-[10px] font-sans font-bold uppercase px-3 py-1 rounded-full">
+          Sold Out
         </span>
       </div>
 
-      <div className="px-1">
-        <p className="text-xs font-sans font-medium uppercase tracking-[0.2em] text-muted-foreground mb-1">
-          {product.color}
-        </p>
+      <div className="px-1 text-center">
         <h3
           className="text-lg font-serif font-medium text-foreground mb-1 cursor-pointer hover:text-primary transition-colors"
           onClick={() => router.push(`/product/${product.id}`)}
         >
           {product.name}
         </h3>
-        <div className="flex items-center gap-2 mb-4">
-          <p className="text-sm font-sans font-semibold text-foreground">
-            ₪{product.price}
-          </p>
-          <p className="text-sm font-sans font-light text-muted-foreground line-through">
-            ₪{product.oldPrice}
-          </p>
-        </div>
         <Button
-          variant="subtle"
+          variant="outline"
           size="sm"
-          className="px-6"
-          onClick={() => addItem({ id: product.id, name: product.name, price: product.price, image: product.image })}
+          className="w-full mt-4"
+          onClick={() => router.push(`/product/${product.id}`)}
         >
-          הוסיפי לסל
+          אזל מהמלאי - הצטרפי להמתנה
         </Button>
       </div>
     </div>

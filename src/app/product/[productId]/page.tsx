@@ -9,13 +9,14 @@ import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import { ChevronRight, Minus, Plus, Star, Truck, RotateCcw, Shield } from "lucide-react";
+import { WaitlistDialog } from "@/components/WaitlistDialog";
 
-import imgClassic from "@/assets/product-classic.jpg";
-import imgChampagne from "@/assets/product-champagne.jpg";
-import imgBallet from "@/assets/product-ballet.jpg";
-import imgRoseQuartz from "@/assets/product-rose-quartz.jpg";
-import imgRing from "@/assets/product-pilates-ring.jpg";
-import imgBand from "@/assets/product-resistance-band.jpg";
+import imgClassic from "@/assets/product_classic_1773579003841.png";
+import imgChampagne from "@/assets/product_champagne_1773579021607.png";
+import imgBallet from "@/assets/product_ballet_1773579037443.png";
+import imgRoseQuartz from "@/assets/product_rose_quartz_1773579053445.png";
+import imgRing from "@/assets/product_pilates_ring_1773579072379.png";
+import imgBand from "@/assets/product_resistance_band_1773579091254.png";
 
 const productSpecs = {
   activity: "YOGA, Daily Life, כושר גופני, מנדף לחות, טיולים רגליים, Ballet, Tennis, רכיבה על אופניים",
@@ -158,6 +159,7 @@ const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [showSpecs, setShowSpecs] = useState(false);
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
   if (!product) {
     return (
@@ -287,7 +289,7 @@ const ProductPage = () => {
             )}
 
             {/* Quantity */}
-            <div className="mb-8">
+            <div className="mb-8 hidden">
               <p className="text-sm font-sans font-medium text-foreground mb-3">כמות</p>
               <div className="inline-flex items-center border border-border rounded-full">
                 <button
@@ -307,14 +309,20 @@ const ProductPage = () => {
             </div>
 
             <Button
-              variant="hero"
+              variant="outline"
               size="lg"
-              className="px-12 py-6 h-auto w-full md:w-auto"
-              onClick={handleAddToCart}
-              disabled={product.sizes ? !selectedSize : false}
+              className="px-12 py-6 h-auto w-full md:w-auto mt-4 text-black border-black hover:bg-black hover:text-white"
+              onClick={() => setIsWaitlistOpen(true)}
             >
-              {product.sizes && !selectedSize ? "בחרי מידה" : "הוסיפי לסל"}
+              אזל מהמלאי - הצטרפי לרשימת המתנה
             </Button>
+
+            <WaitlistDialog 
+              isOpen={isWaitlistOpen}
+              onOpenChange={setIsWaitlistOpen}
+              productId={product.id}
+              productName={product.name}
+            />
 
             {/* Trust badges */}
             <div className="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-border">
@@ -412,15 +420,19 @@ const ProductPage = () => {
                   onClick={() => { router.push(`/product/${p.id}`); window.scrollTo(0, 0); }}
                   className="text-right group"
                 >
-                  <div className="overflow-hidden rounded-3xl bg-card shadow-card mb-4 aspect-square">
+                  <div className="relative overflow-hidden rounded-3xl bg-card shadow-card mb-4 aspect-square">
                     <img
                       src={p.images[0]}
                       alt={p.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
+                    <div className="absolute inset-0 bg-foreground/5 transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
+                    <span className="absolute top-4 right-4 bg-muted text-muted-foreground text-[10px] font-sans font-bold uppercase px-3 py-1 rounded-full">
+                      Sold Out
+                    </span>
                   </div>
                   <h3 className="text-base font-serif font-medium text-foreground mb-1">{p.name}</h3>
-                  <p className="text-sm font-sans font-semibold text-foreground">₪{p.price} / ${p.priceDollar}</p>
+                  <p className="text-sm font-sans font-semibold text-foreground">₪{p.price}</p>
                 </button>
               ))}
             </div>

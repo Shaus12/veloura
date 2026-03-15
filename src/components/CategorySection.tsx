@@ -4,26 +4,31 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
+import imgCategoryGripSocks from "@/assets/category_grip_socks_1773587606665.png";
+import imgCategoryEquipment from "@/assets/category_equipment_1773587633142.png";
+import imgCategoryApparel from "@/assets/category_apparel_1773587649434.png";
+import imgCategoryAccessories from "@/assets/category_accessories_1773587671537.png";
+
 const categories = [
   {
     id: "grip-socks",
     name: "גרבי אחיזה לפילאטיס",
-    image: "/products/product_1_logo.jpg",
+    image: imgCategoryGripSocks.src,
   },
   {
     id: "equipment",
     name: "ציוד ואביזרים",
-    image: "/products/product_4_logo.jpg",
+    image: imgCategoryEquipment.src,
   },
   {
     id: "apparel",
     name: "ביגוד פילאטיס",
-    image: "/products/product_8_logo.jpg",
+    image: imgCategoryApparel.src,
   },
   {
     id: "accessories",
     name: "אביזרים נלווים",
-    image: "/products/product_3_logo.jpg",
+    image: imgCategoryAccessories.src,
   }
 ];
 
@@ -35,8 +40,9 @@ const CategorySection = () => {
       <div className="container mx-auto max-w-[1400px]">
         <h2 
           className={`text-3xl md:text-4xl font-serif font-medium text-center text-foreground mb-12 md:mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}
+          style={{ direction: 'rtl' }}
         >
-          ?What Are You Looking For
+          מה את מחפשת?
         </h2>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">

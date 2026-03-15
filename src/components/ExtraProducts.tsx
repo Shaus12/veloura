@@ -28,7 +28,7 @@ const extras = [
     name: "סט בגדי ספורט Seamless",
     price: 195,
     description: "סט איכותי מבד נושם, מושלם לכל אימון",
-    image: "/products/product_9_logo.jpg", // Kept original for the third image due to limit
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800",
   },
 ];
 

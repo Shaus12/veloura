@@ -17,6 +17,14 @@ import imgBallet from "@/assets/product_ballet_1773579037443.png";
 import imgRoseQuartz from "@/assets/product_rose_quartz_1773579053445.png";
 import imgRing from "@/assets/product_pilates_ring_1773579072379.png";
 import imgBand from "@/assets/product_resistance_band_1773579091254.png";
+import imgWaterBottle from "@/assets/product_water_bottle_1773592499625.png";
+import imgYogaSet from "@/assets/product_yoga_set_1773592518011.png";
+
+const extraImgs = [
+  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800",
+  "https://images.unsplash.com/photo-1599901860904-17e089299dc4?auto=format&fit=crop&q=80&w=800",
+  "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&q=80&w=800"
+];
 
 const productSpecs = {
   activity: "YOGA, Daily Life, כושר גופני, מנדף לחות, טיולים רגליים, Ballet, Tennis, רכיבה על אופניים",
@@ -48,7 +56,7 @@ const allProducts = [
     price: 55,
     priceDollar: 15,
     oldPrice: 65,
-    images: [imgClassic.src],
+    images: [imgClassic.src, ...extraImgs],
     color: "שחור קלאסי",
     description: "גרבי אחיזה מכותנה אורגנית לנשימה ואחיזה מקסימלית על הרפורמר. עיצוב נקי וקלאסי שמתאים לכל לוק בסטודיו.",
     details: ["בד נושם ורך", "אחיזת סיליקון מלאה", "תפרים שטוחים", "מושלם ל-Reformer Girlies"],
@@ -61,7 +69,7 @@ const allProducts = [
     price: 55,
     priceDollar: 15,
     oldPrice: 65,
-    images: [imgChampagne.src],
+    images: [imgChampagne.src, ...extraImgs],
     color: "שמפניה עדינה",
     description: "גרבי אחיזה מכותנה אורגנית לנשימה ואחיזה מקסימלית על הרפורמר בעיצוב עדין של שמפניה.",
     details: ["בד נושם ורך", "אחיזת סיליקון מלאה", "תפרים שטוחים", "מושלם ל-Reformer Girlies"],
@@ -74,7 +82,7 @@ const allProducts = [
     price: 55,
     priceDollar: 15,
     oldPrice: 65,
-    images: [imgBallet.src],
+    images: [imgBallet.src, ...extraImgs],
     color: "ורוד בלט",
     description: "גוון ורוד בלט עדין לסטודיו. אחיזה חזקה וסטייל בלתי מתפשר לשעות הפילאטיס שלך.",
     details: ["בד נושם ורך", "אחיזת סיליקון מלאה", "תפרים שטוחים", "מושלם ל-Reformer Girlies"],
@@ -87,7 +95,7 @@ const allProducts = [
     price: 55,
     priceDollar: 15,
     oldPrice: 65,
-    images: [imgRoseQuartz.src],
+    images: [imgRoseQuartz.src, ...extraImgs],
     color: "רוז קוורץ",
     description: "רוז קוורץ טרנדי - שילוב של נוחות ואסתטיקה לכל סטודיו שתבחרי.",
     details: ["בד נושם ורך", "אחיזת סיליקון מלאה", "תפרים שטוחים", "עיצוב אסתטי במיוחד"],
@@ -100,7 +108,7 @@ const allProducts = [
     price: 120,
     priceDollar: 35,
     oldPrice: 150,
-    images: [imgRing.src],
+    images: [imgRing.src, ...extraImgs],
     color: "בז' / עץ מנגו",
     description: "ההתנגדות המושלמת לסטודיו הביתי שלך מכוסה בחומרים עמידים ונעימים למגע בגימור בז' קלאסי.",
     details: ["מעטפת נעימה למגע", "התנגדות חזקה וגמישה לאורך זמן", "מושלם חיזוק שרירי ליבה וירכיים", "עיצוב מינימליסטי מתקדם"],
@@ -112,11 +120,47 @@ const allProducts = [
     price: 89,
     priceDollar: 25,
     oldPrice: 110,
-    images: [imgBand.src],
+    images: [imgBand.src, ...extraImgs],
     color: "סט גווני אדמה",
     description: "גומיות מבד עבה שלא מחליק לעולם. עיצוב גווני אדמה שמרגיעים את העיניים במהלך כל אימון ביתי.",
     details: ["שלוש רמות התנגדות", "לא מתקפל או מחליק מחומר עמיד", "גימור אסתטי איכותי", "מגיע בתיקייה תואמת"],
     category: "Equipment"
+  },
+  {
+    id: "alibaba-7",
+    name: "בקבוק מים נירוסטה 500 מ״ל",
+    price: 85,
+    priceDollar: 25,
+    oldPrice: 120,
+    images: [imgWaterBottle.src, ...extraImgs],
+    color: "ירוק מנטה",
+    description: "בקבוק מבודד לשמירת קור למשך 24 שעות",
+    details: ["נירוסטה איכותית", "שומר על קור וחום", "עיצוב מינימליסטי"],
+    category: "Accessories"
+  },
+  {
+    id: "alibaba-8",
+    name: "סט ספורט ויוגה (2 חלקים)",
+    price: 180,
+    priceDollar: 50,
+    oldPrice: 240,
+    images: [imgYogaSet.src, ...extraImgs],
+    color: "טאופ טבעי",
+    description: "סט ספורט נוח ומחמיא לאימוני פילאטיס ויוגה",
+    details: ["בד גמיש ונושם", "גזרה מחמיאה", "מתאים לכל סוגי האימונים"],
+    category: "Apparel"
+  },
+  {
+    id: "alibaba-9",
+    name: "סט בגדי ספורט Seamless",
+    price: 195,
+    priceDollar: 55,
+    oldPrice: 260,
+    images: ["https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800", ...extraImgs],
+    color: "סגול אפרפר",
+    description: "סט איכותי מבד נושם, מושלם לכל אימון",
+    details: ["בד ללא תפרים למניעת שפשופים", "גמישות מירבית", "עיצוב מתקדם"],
+    category: "Apparel"
   }
 ];
 

@@ -13,6 +13,9 @@ import imgRoseQuartz from "@/assets/product-rose-quartz.jpg";
 import imgRing from "@/assets/product-pilates-ring.jpg";
 import imgBand from "@/assets/product-resistance-band.jpg";
 
+import imgWaterBottle from "@/assets/product_water_bottle_1773592499625.png";
+import imgYogaSet from "@/assets/product_yoga_set_1773592518011.png";
+
 const allProducts = [
   {
     id: "veloura-grip-classic",
@@ -21,7 +24,7 @@ const allProducts = [
     oldPrice: 65,
     image: imgClassic.src,
     color: "שחור קלאסי",
-    category: "equipment"
+    category: "grip-socks"
   },
   {
     id: "veloura-grip-champagne",
@@ -30,7 +33,7 @@ const allProducts = [
     oldPrice: 65,
     image: imgChampagne.src,
     color: "שמפניה עדינה",
-    category: "bodysuits"
+    category: "grip-socks"
   },
   {
     id: "veloura-grip-ballet",
@@ -39,7 +42,7 @@ const allProducts = [
     oldPrice: 65,
     image: imgBallet.src,
     color: "ורוד בלט",
-    category: "leggings"
+    category: "grip-socks"
   },
   {
     id: "veloura-grip-rose-quartz",
@@ -48,7 +51,7 @@ const allProducts = [
     oldPrice: 65,
     image: imgRoseQuartz.src,
     color: "רוז קוורץ",
-    category: "tops"
+    category: "grip-socks"
   },
   {
     id: "veloura-magic-circle",
@@ -67,14 +70,41 @@ const allProducts = [
     image: imgBand.src,
     color: "סט גווני אדמה",
     category: "equipment"
+  },
+  {
+    id: "alibaba-7",
+    name: "בקבוק מים נירוסטה 500 מ״ל",
+    price: 85,
+    oldPrice: 120,
+    image: imgWaterBottle.src,
+    color: "ירוק מנטה",
+    category: "accessories"
+  },
+  {
+    id: "alibaba-8",
+    name: "סט ספורט ויוגה (2 חלקים)",
+    price: 180,
+    oldPrice: 240,
+    image: imgYogaSet.src,
+    color: "טאופ טבעי",
+    category: "apparel"
+  },
+  {
+    id: "alibaba-9",
+    name: "סט בגדי ספורט Seamless",
+    price: 195,
+    oldPrice: 260,
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=800",
+    color: "סגול אפרפר",
+    category: "apparel"
   }
 ];
 
 const categoryNames: Record<string, string> = {
-  equipment: "Equipment",
-  bodysuits: "Bodysuits",
-  leggings: "Leggings",
-  tops: "Tops",
+  "grip-socks": "גרבי אחיזה",
+  equipment: "ציוד ואביזרים",
+  apparel: "ביגוד פילאטיס",
+  accessories: "אביזרים נלווים",
 };
 
 export default function CategoryPage() {

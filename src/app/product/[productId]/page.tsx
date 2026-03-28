@@ -161,6 +161,106 @@ const allProducts = [
     description: "סט איכותי מבד נושם, מושלם לכל אימון",
     details: ["בד ללא תפרים למניעת שפשופים", "גמישות מירבית", "עיצוב מתקדם"],
     category: "Apparel"
+  },
+  {
+    id: "aliexpress-1",
+    name: "גרבי יוגה עם אחיזת סיליקון",
+    price: 99,
+    priceDollar: 27,
+    oldPrice: 120,
+    images: ["/products/aliexpress_1.jpg", ...extraImgs],
+    color: "ססגוני",
+    description: "גרבי יוגה מבד כותנה עם רקמה נקודתית מסיליקון, לא מחליקות לאחיזה מושלמת בפילאטיס.",
+    details: ["בד כותנה נושם", "רקמה נקודתית מסיליקון", "אחיזה אנטי החלקה"],
+    sizes: ["S (35-37)", "M (38-40)", "L (41-43)"],
+    category: "Grip Socks"
+  },
+  {
+    id: "aliexpress-2",
+    name: "גרבי יוגה דוגמת לחם וקפה",
+    price: 99,
+    priceDollar: 27,
+    oldPrice: 120,
+    images: ["/products/aliexpress_2.jpg", ...extraImgs],
+    color: "ססגוני",
+    description: "גרבי יוגה לנשים מכותנה מעוצבות עם דוגמת לחם וקפה ושוליים דמויי חסה.",
+    details: ["בד כותנה נעים", "נקודות סיליקון נגד החלקה", "עיצוב ייחודי"],
+    sizes: ["S (35-37)", "M (38-40)", "L (41-43)"],
+    category: "Grip Socks"
+  },
+  {
+    id: "aliexpress-3",
+    name: "גרבי יוגה כותנה לבנה",
+    price: 99,
+    priceDollar: 27,
+    oldPrice: 120,
+    images: ["/products/aliexpress_3.jpg", ...extraImgs],
+    color: "לבן",
+    description: "גרבי יוגה לנשים מכותנה לבנה רקומות עם נקודות סיליקון למניעת החלקה.",
+    details: ["נקודות סיליקון נגד החלקה", "בד נושם ורך", "עיצוב לבן נקי"],
+    sizes: ["S (35-37)", "M (38-40)", "L (41-43)"],
+    category: "Grip Socks"
+  },
+  {
+    id: "aliexpress-4",
+    name: "גרבי יוגה דובדבן",
+    price: 99,
+    priceDollar: 27,
+    oldPrice: 120,
+    images: ["/products/aliexpress_4.jpg", ...extraImgs],
+    color: "לבן/אדום",
+    description: "גרבי יוגה לנשים מכותנה עם רקמת דובדבן, סיליקון עם נקודות לאחיזה אנטי החלקה.",
+    details: ["נקודות סיליקון לאחיזה מרבית", "נוחות לאורך זמן", "עיצוב דובדבן"],
+    sizes: ["S (35-37)", "M (38-40)", "L (41-43)"],
+    category: "Grip Socks"
+  },
+  {
+    id: "aliexpress-5",
+    name: "סט 13 חתיכות פילאטיס ויוגה",
+    price: 99,
+    priceDollar: 27,
+    oldPrice: 150,
+    images: ["/products/aliexpress_5.jpg", ...extraImgs],
+    color: "סגול/שחור",
+    description: "סט פילאטיס יוגה 13 חתיכות לבית לנשים מכיל אביזרי כושר והתאמה מושלמים.",
+    details: ["13 חתיכות למגוון אימונים", "אידיאלי לאימון ביתי", "עמיד במיוחד"],
+    category: "Equipment"
+  },
+  {
+    id: "aliexpress-6",
+    name: "טבעת פילאטיס קסם",
+    price: 99,
+    priceDollar: 27,
+    oldPrice: 130,
+    images: ["/products/aliexpress_6.jpg", ...extraImgs],
+    color: "ורוד/סגול",
+    description: "טבעת פילאטיס וכושר להתאמת ירכיים, בטן ורגליים לאימון התנגדות וספורט.",
+    details: ["התנגדות גמישה לאורך זמן", "מעטפת נוחה לאחיזה", "מחזק את כל שרירי הליבה"],
+    category: "Equipment"
+  },
+  {
+    id: "aliexpress-7",
+    name: "לוח פילאטיס רב תכליתי",
+    price: 99,
+    priceDollar: 27,
+    oldPrice: 180,
+    images: ["/products/aliexpress_7.jpg", ...extraImgs],
+    color: "שחור",
+    description: "לוח פילאטיס רב תכליתי לאימוני בטן, רצועות התנגדות וכושר לחיזוק הגוף בבית.",
+    details: ["רצועות התנגדות כלולות", "מתאים לחיזוק כללי", "נייד וקל לאחסון"],
+    category: "Equipment"
+  },
+  {
+    id: "aliexpress-8",
+    name: "מזרן יוגה מתקפל EVA",
+    price: 99,
+    priceDollar: 27,
+    oldPrice: 150,
+    images: ["/products/aliexpress_8.jpg", ...extraImgs],
+    color: "ורוד/תכלת",
+    description: "מזרני יוגה ופילאטיס מתקפלים מ-EVA וידידותיים לסביבה, אידיאליים לנסיעות.",
+    details: ["ידידותי לסביבה", "מתקפל בקלות", "עובי אידיאלי לתמיכה (3-6מ״מ)"],
+    category: "Accessories"
   }
 ];
 

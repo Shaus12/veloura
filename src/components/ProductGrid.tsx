@@ -71,8 +71,8 @@ const products = [
   {
     id: "aliexpress-1",
     name: "גרבי יוגה עם אחיזת סיליקון",
-    price: 99,
-    oldPrice: 120,
+    price: 59,
+    oldPrice: 79,
     image: "/products/aliexpress_1.jpg",
     color: "ססגוני",
     category: "Grip Socks"
@@ -80,8 +80,8 @@ const products = [
   {
     id: "aliexpress-2",
     name: "גרבי יוגה דוגמת לחם וקפה",
-    price: 99,
-    oldPrice: 120,
+    price: 59,
+    oldPrice: 79,
     image: "/products/aliexpress_2.jpg",
     color: "ססגוני",
     category: "Grip Socks"
@@ -89,8 +89,8 @@ const products = [
   {
     id: "aliexpress-3",
     name: "גרבי יוגה כותנה לבנה",
-    price: 99,
-    oldPrice: 120,
+    price: 59,
+    oldPrice: 79,
     image: "/products/aliexpress_3.jpg",
     color: "לבן",
     category: "Grip Socks"
@@ -98,8 +98,8 @@ const products = [
   {
     id: "aliexpress-4",
     name: "גרבי יוגה דובדבן",
-    price: 99,
-    oldPrice: 120,
+    price: 59,
+    oldPrice: 79,
     image: "/products/aliexpress_4.jpg",
     color: "לבן/אדום",
     category: "Grip Socks"
@@ -107,8 +107,8 @@ const products = [
   {
     id: "aliexpress-5",
     name: "סט 13 חתיכות פילאטיס ויוגה",
-    price: 99,
-    oldPrice: 150,
+    price: 189,
+    oldPrice: 250,
     image: "/products/aliexpress_5.jpg",
     color: "סגול/שחור",
     category: "Equipment"
@@ -116,8 +116,8 @@ const products = [
   {
     id: "aliexpress-6",
     name: "טבעת פילאטיס קסם",
-    price: 99,
-    oldPrice: 130,
+    price: 129,
+    oldPrice: 160,
     image: "/products/aliexpress_6.jpg",
     color: "ורוד/סגול",
     category: "Equipment"
@@ -125,8 +125,8 @@ const products = [
   {
     id: "aliexpress-7",
     name: "לוח פילאטיס רב תכליתי",
-    price: 99,
-    oldPrice: 180,
+    price: 249,
+    oldPrice: 320,
     image: "/products/aliexpress_7.jpg",
     color: "שחור",
     category: "Equipment"
@@ -134,8 +134,8 @@ const products = [
   {
     id: "aliexpress-8",
     name: "מזרן יוגה מתקפל EVA",
-    price: 99,
-    oldPrice: 150,
+    price: 149,
+    oldPrice: 190,
     image: "/products/aliexpress_8.jpg",
     color: "ורוד/תכלת",
     category: "Accessories"

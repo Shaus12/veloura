@@ -76,7 +76,7 @@ const products: Product[] = [
   {
     id: "aliexpress-1",
     name: "גרבי יוגה עם אחיזת סיליקון",
-    price: 99,
+    price: 59,
     image: "/products/aliexpress_1.jpg",
     colors: ["#ffffff", "#e0e0e0", "#d3d3d3"],
     category: "Grip Socks"
@@ -84,7 +84,7 @@ const products: Product[] = [
   {
     id: "aliexpress-2",
     name: "גרבי יוגה דוגמת לחם וקפה",
-    price: 99,
+    price: 59,
     image: "/products/aliexpress_2.jpg",
     colors: ["#cd853f", "#8b4513"],
     category: "Grip Socks"
@@ -92,7 +92,7 @@ const products: Product[] = [
   {
     id: "aliexpress-3",
     name: "גרבי יוגה כותנה לבנה",
-    price: 99,
+    price: 59,
     image: "/products/aliexpress_3.jpg",
     colors: ["#ffffff"],
     category: "Grip Socks"
@@ -100,7 +100,7 @@ const products: Product[] = [
   {
     id: "aliexpress-4",
     name: "גרבי יוגה דובדבן",
-    price: 99,
+    price: 59,
     image: "/products/aliexpress_4.jpg",
     colors: ["#ffffff", "#ff0000"],
     category: "Grip Socks"
@@ -108,7 +108,7 @@ const products: Product[] = [
   {
     id: "aliexpress-5",
     name: "סט 13 חתיכות פילאטיס ויוגה",
-    price: 99,
+    price: 189,
     image: "/products/aliexpress_5.jpg",
     colors: ["#800080", "#000000"],
     category: "Equipment"
@@ -116,7 +116,7 @@ const products: Product[] = [
   {
     id: "aliexpress-6",
     name: "טבעת פילאטיס קסם",
-    price: 99,
+    price: 129,
     image: "/products/aliexpress_6.jpg",
     colors: ["#ffc0cb", "#dda0dd"],
     category: "Equipment"
@@ -124,7 +124,7 @@ const products: Product[] = [
   {
     id: "aliexpress-7",
     name: "לוח פילאטיס רב תכליתי",
-    price: 99,
+    price: 249,
     image: "/products/aliexpress_7.jpg",
     colors: ["#000000"],
     category: "Equipment"
@@ -132,7 +132,7 @@ const products: Product[] = [
   {
     id: "aliexpress-8",
     name: "מזרן יוגה מתקפל EVA",
-    price: 99,
+    price: 149,
     image: "/products/aliexpress_8.jpg",
     colors: ["#ffb6c1", "#87ceeb"],
     category: "Accessories"
